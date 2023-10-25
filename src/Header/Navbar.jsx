@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -60,18 +61,18 @@ const Navbar = () => {
           id="navbar-cta"
         >
           <ul className="flex menuUl flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-black  ">
-            <li className="block py-2 pl-3 pr-4  text-white hover:text-mainColor font-semibold ">
+           <Link to={'/'}> <li className="block py-2 pl-3 pr-4  text-white hover:text-mainColor font-semibold ">
               Home
-            </li>
+            </li></Link>
             <li className="block py-2 pl-3 pr-4 rounded text-white hover:text-mainColor font-semibold ">
               About
             </li>
             <li className="block py-2 pl-3 pr-4 rounded text-white hover:text-mainColor font-semibold ">
               Services
             </li>
-            <li className="block py-2 pl-3 pr-4 rounded text-white hover:text-mainColor font-semibold ">
-              Contact
-            </li>
+            <Link to={'/Contact'} >
+              <li className="block py-2 pl-3 pr-4 rounded text-white hover:text-mainColor font-semibold ">Contact</li>
+            </Link>
             <li className="block py-2 pl-3 pr-4 text-white hover:text-mainColor rounded  font-semibold ">
               Blog
             </li>
