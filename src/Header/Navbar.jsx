@@ -73,9 +73,9 @@ const Navbar = () => {
             <Link to={'/Contact'} >
               <li className="block py-2 pl-3 pr-4 rounded text-white hover:text-mainColor font-semibold ">Contact</li>
             </Link>
-            <li className="block py-2 pl-3 pr-4 text-white hover:text-mainColor rounded  font-semibold ">
+            <Link to={'/Blog'} className="block py-2 pl-3 pr-4 text-white hover:text-mainColor rounded  font-semibold ">
               Blog
-            </li>
+            </Link>
           </ul>
         </div>
       </div>
