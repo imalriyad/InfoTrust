@@ -19,7 +19,7 @@ const Hero = () => {
           <div className="ml-6 md:space-y-3">
             <h1 className="lg:text-7xl md:text-5xl text-3xl font-semibold text-white md:max-w-2xl">
               Supercharge your trading journey with{" "}
-              <span className="text-mainColor">Trade.p</span>
+              <span className="text-mainColor">InvoTrust</span>
             </h1>
             <p className="py-6 font-semibold text-white text-xs pr-4 md:text-base md:max-w-xl">
               Trade on Bitcoin, Gold, Oil, Apple, Tesla, crude oil and 6,400+
@@ -28,7 +28,7 @@ const Hero = () => {
             </p>
             <button
               type="button"
-              className="bg-mainColor flex items-center normal-case text-sm md:text-base p-2 px-4 md:px-6 md:py-3 rounded mr-2 hover:bg-mainColor border-none font-bold "
+              className=" translate-y-0 active:translate-y-1 active:duration-300 bg-mainColor normal-case text-sm md:text-base p-2 px-3 md:px-6 md:py-3 rounded mr-2 hover:bg-mainColor border-none font-bold flex items-center gap-0"
             >
               Get started <MdKeyboardArrowRight className="text-xl lg:block hidden"></MdKeyboardArrowRight>
             </button>

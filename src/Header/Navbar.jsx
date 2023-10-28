@@ -24,7 +24,7 @@ const Navbar = () => {
         <div className="flex md:order-2">
           <button
             type="button"
-            className="bg-mainColor normal-case text-sm md:text-base p-2 px-3 md:px-6 md:py-3 rounded mr-2 hover:bg-mainColor border-none font-bold "
+            className=" translate-y-0 active:translate-y-1 active:duration-300 bg-mainColor normal-case text-sm md:text-base p-2 px-3 md:px-6 md:py-3 rounded mr-2 hover:bg-mainColor border-none font-bold "
           >
             Get started
           </button>
@@ -61,20 +61,29 @@ const Navbar = () => {
           id="navbar-cta"
         >
           <ul className="flex menuUl flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-black  ">
-           <Link to={'/'}> <li className="block py-2 pl-3 pr-4  text-white hover:text-mainColor font-semibold ">
-              Home
-            </li></Link>
-            <li className="block py-2 pl-3 pr-4 rounded text-white hover:text-mainColor font-semibold ">
-              About
-            </li>
+            <Link to={"/"}>
+              {" "}
+              <li className="block py-2 pl-3 pr-4  text-white hover:text-mainColor font-semibold ">
+                Home
+              </li>
+            </Link>
+            <Link to={"/About"}>
+              <li className="block py-2 pl-3 pr-4  text-white hover:text-mainColor font-semibold ">
+                About
+              </li>
+            </Link>
             <li className="block py-2 pl-3 pr-4 rounded text-white hover:text-mainColor font-semibold ">
               Services
             </li>
-            <Link to={'/Contact'} >
-              <li className="block py-2 pl-3 pr-4 rounded text-white hover:text-mainColor font-semibold ">Contact</li>
+            <Link to={"/Contact"}>
+              <li className="block py-2 pl-3 pr-4 rounded text-white hover:text-mainColor font-semibold ">
+                Contact
+              </li>
             </Link>
-            <Link to={'/Blog'} className="block py-2 pl-3 pr-4 text-white hover:text-mainColor rounded  font-semibold ">
-              Blog
+            <Link to={"/Blog"}>
+              <li className="block py-2 pl-3 pr-4 text-white hover:text-mainColor rounded  font-semibold ">
+                Blog
+              </li>
             </Link>
           </ul>
         </div>

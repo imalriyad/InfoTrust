@@ -83,10 +83,10 @@ const Testimonial = () => {
                     <p className="text-xs text-white">CEO ,NETFLIX</p>
                   </span>
                 </div>
-                <p className="text-secondColor text-sm py-5">
-                  This is a section of some simple filler text, also known as
+                <p className="text-secondColor italic font-medium text-sm py-5">
+                “ This is a section of some simple filler text, also known as
                   placeholder text. It shares some characteristics of a real
-                  written text.
+                  written text ”
                 </p>
                 <div className="rating rating-sm">
                   <input

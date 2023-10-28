@@ -22,14 +22,14 @@ export default function TeamSlider() {
   }
 
   return (
-    <div className="  bg-black">
+    <div className=" bg-black">
       <div className="mx-auto max-w-screen-xl md:px-10 px-4 py-4 md:py-14">
         <div className="md:space-y-7 py-10 space-y-4 text-white max-w-2xl mx-auto">
           {" "}
-          <h1 className="font-medium md:text-5xl text-[32px] text-mainColor md:text-center">
+          <h1 className="font-bold md:text-5xl text-[32px] px-4 text-mainColor md:text-center">
             Our Top Investor
           </h1>
-          <p className="text-sm md:text-base md:text-center text-left text-secondColor">
+          <p className="text-sm md:text-base md:text-center text-left px-4 text-secondColor">
             Celebrating Customer Feedback: Explore Testimonials, Insights,
             Praise, and the Voice of our Valued Clients. Discover what people
             say about us and our unwavering commitment to excellence
@@ -58,11 +58,11 @@ export default function TeamSlider() {
             <div className="md:p-5 p-2 text-center bg-black border border-mainColor rounded-lg md:h-[450px] md:w-[400px]">
               <img
                 src="https://i.ibb.co/xjKCppZ/1.jpg"
-                className="rounded-lg "
-                alt=""
+                className="rounded-lg object-cover"
+                alt="" 
               />
               <h1 className="md:text-2xl text-white text-sm font-medium mt-6">
-                Car Engine Plug
+               Elon Musk
               </h1>
               <p className="text-secondColor mt-1 md:text-base text-xs">
                 Engine Expert
@@ -96,11 +96,11 @@ export default function TeamSlider() {
             <div className="md:p-5 p-2 text-center bg-black border border-mainColor rounded-lg md:h-[450px] md:w-[400px]">
               <img
                 src="https://i.ibb.co/zH3Ynt4/3.jpg"
-                className="rounded-lg"
+                className="rounded-lg object-cover"
                 alt=""
               />
               <h1 className="md:text-2xl text-white text-sm font-medium mt-6">
-                Car Engine Plug
+              Jeff Bezos
               </h1>
               <p className="text-secondColor mt-1 md:text-base text-xs">
                 Engine Expert
@@ -134,11 +134,11 @@ export default function TeamSlider() {
             <div className="md:p-5 p-2 text-center bg-black border border-mainColor rounded-lg md:h-[450px] md:w-[400px]">
               <img
                 src="https://i.ibb.co/vv3WK8z/2.jpg"
-                className="rounded-lg"
+                className="rounded-lg object-cover"
                 alt=""
               />
               <h1 className="md:text-2xl text-white text-sm font-medium mt-6">
-                Car Engine Plug
+              Larry Ellison
               </h1>
               <p className="text-secondColor mt-1 md:text-base text-xs">
                 Engine Expert
@@ -171,11 +171,11 @@ export default function TeamSlider() {
             <div className="md:p-5 p-2 text-center bg-black border border-mainColor rounded-lg md:h-[450px] md:w-[400px]">
               <img
                 src="https://i.ibb.co/DLxFD7Z/2.jpg"
-                className="rounded-lg"
+                className="rounded-lg object-cover"
                 alt=""
               />
               <h1 className="md:text-2xl text-white text-sm font-medium  mt-6">
-                Car Engine Plug
+              Bill Gates
               </h1>
               <p className="text-secondColor mt-1 md:text-base text-xs">
                 Engine Expert
@@ -208,11 +208,11 @@ export default function TeamSlider() {
             <div className="md:p-5 p-2 text-center bg-black border border-mainColor rounded-lg md:h-[450px] md:w-[400px]">
               <img
                 src="https://i.ibb.co/yXk9GcG/2.jpg"
-                className="rounded-lg"
+                className="rounded-lg object-cover"
                 alt=""
               />
               <h1 className="md:text-2xl text-white text-sm font-medium mt-6">
-                Car Engine Plug
+              Mark Zuckerberg
               </h1>
               <p className="text-secondColor mt-1 md:text-base text-xs">
                 Engine Expert
