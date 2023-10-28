@@ -30,7 +30,7 @@ const router = createBrowserRouter([
       {
         path: "/PostDetails/:id",
         element: <PostDetails></PostDetails>,
-        loader: () => fetch('/public/blog.json'),
+        loader: () => fetch('https://api.npoint.io/6a872fcb5bf1f03e2360'),
       },
     ],
   },
