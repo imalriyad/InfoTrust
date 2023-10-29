@@ -11,16 +11,16 @@ const DepoWithdraw = ({transections }) => {
         <table className="table table-pin-rows border border-mainColor">
           <thead>
             <tr className="text-center bg-black">
-              <th className="text-2xl text-mainColor  border border-mainColor">
+              <th className="md:text-base text-mainColor  border border-mainColor">
                 No
               </th>
-              <th className="text-2xl text-mainColor ">Name</th>
-              <th className="text-2xl text-mainColor border border-mainColor">
+              <th className="md:text-base text-mainColor ">Name</th>
+              <th className="md:text-base text-mainColor border border-mainColor">
                 Amount
               </th>
-              <th className="text-2xl text-mainColor">Date</th>
-              <th className="text-2xl text-mainColor border border-mainColor">
-               {transections[0]?.states}
+              <th className="md:text-base text-mainColor">Deposit Date</th>
+              <th className="md:text-base text-mainColor border border-mainColor">
+               {transections[0]?.states} time
               </th>
             </tr>
           </thead>

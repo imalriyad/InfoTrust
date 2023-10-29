@@ -5,6 +5,7 @@ import Contact from "../Pages/Contact";
 import Blog from "../Blog/Blog";
 import PostDetails from "../Blog/PostDetails";
 import Faq from "../Components/Faq";
+import Registration from "../Form/Registration";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,14 @@ const router = createBrowserRouter([
         element: <PostDetails></PostDetails>,
         loader: () => fetch('https://api.npoint.io/6a872fcb5bf1f03e2360'),
       },
+      {
+        path:'/Registration',
+        element:<Registration></Registration>
+      },
+      {
+        path:'/Login',
+        element:<Registration></Registration>
+      }
     ],
   },
 ]);

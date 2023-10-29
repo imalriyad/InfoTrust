@@ -7,7 +7,7 @@ const Table = ({investor}) => {
         <>
             <tr className="text-center text-white">
                 <td>
-                <h1 className="font-semibold md:text-base text-xs">{id}</h1>
+                <h1 className=" md:text-base text-xs">{id}</h1>
                 </td>
         <td className="border border-mainColor px-2 ">
           <div className="flex md:pl-4 text-left items-start space-x-3 ">
@@ -18,20 +18,20 @@ const Table = ({investor}) => {
             </div>
             <div>
      
-            <h1 className="font-semibold text-left md:text-base text-xs">{name}</h1>
-            <h1 className="font-light text-left md:block hidden text-sm">{location}</h1>
+            <h1 className="text-left md:text-base text-xs">{name}</h1>
+            <h1 className="font-light text-left md:block hidden text-xs">{location}</h1>
            
             </div>
           </div>
         </td >
-        <td className="border border-mainColor">
-        <h1 className="font-semibold md:text-base text-xs">${amount}</h1>
+        <td className="border border-mainColor p-0 px-2">
+        <h1 className="md:text-base text-xs">${amount}</h1>
         </td>
-        <td className="border border-mainColor">
-             <h1 className="font-semibold md:text-base text-xs">{date}</h1>
+        <td className="border border-mainColor p-0 px-2">
+             <h1 className=" md:text-base text-xs">{date}</h1>
         </td>
-        <td className="border border-mainColor">
-             <h1 className="font-semibold md:text-base text-xs">{time}</h1>
+        <td className="border border-mainColor p-0 px-2">
+             <h1 className=" md:text-base text-xs">{time}</h1>
         </td>
         
       </tr>

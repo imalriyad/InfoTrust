@@ -95,7 +95,7 @@ const Footer = () => {
                     <FaRegUser className="text-3xl text-mainColor"></FaRegUser>
                     <span className="flex flex-col">
                       <p className="text-xl">
-                        <CountUp start={-875.039} end={92570} duration={2.75}>
+                        <CountUp start={1875} end={92570} duration={2.75}>
                           {({ countUpRef, start }) => (
                             <div>
                               <span ref={countUpRef} />
@@ -115,7 +115,7 @@ const Footer = () => {
                     <TbMoneybag className="text-3xl text-mainColor"></TbMoneybag>
                     <span className="flex flex-col">
                       <p className="text-xl">
-                        <CountUp start={-875.039} end={62360} duration={2.75}>
+                        <CountUp start={1375.039} end={62360} duration={2.75}>
                           {({ countUpRef, start }) => (
                             <div>
                               <span ref={countUpRef} />

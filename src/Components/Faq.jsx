@@ -13,10 +13,10 @@ const Faq = () => {
       <div className="mx-auto max-w-screen-2xl px-4">
         <div className="md:space-y-7 py-10 space-y-4 text-white max-w-2xl mx-auto">
           {" "}
-          <h1 className="font-bold md:text-5xl text-[32px] px-4 text-mainColor md:text-center">
+          <h1 className="font-bold md:text-5xl text-[32px] text-mainColor md:text-center">
             Frequently Asked Questions
           </h1>
-          <p className="text-sm md:text-base md:text-center text-left px-4 text-secondColor">
+          <p className="text-sm md:text-base md:text-center text-left text-secondColor">
             Explore Our FAQs: Gain quick access to expert answers and insights
             into the frequently asked questions that arise in the realm of
             finance and investment. Your queries, our commitment to clarity.
@@ -119,41 +119,9 @@ const Faq = () => {
                 your chosen payment method may have associated fees.
               </p>
             </details>
-            <details
-              className=" group [&_summary::-webkit-details-marker]:hidden"
-              open
-            >
-              <summary className="flex cursor-pointer items-center border border-mainColor justify-between gap-1.5 rounded-lg bg-[#131a22] p-4 ">
-                <h2 className="font-medium text-mainColor">
-                  Is my personal information secure on the site?
-                </h2>
-
-                <svg
-                  className="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-180 text-mainColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </summary>
-
-              <p className="mt-4 p-4 text-sm rounded-md leading-relaxed text-secondColor font-medium bg-[#131a22]">
-                Yes, we prioritize the security of your data. We employ advanced
-                encryption protocols and follow industry-standard security
-                practices to protect your information. Your financial and
-                personal data are kept confidential and secure.
-              </p>
-            </details>
           </div>
           <div className="space-y-10 md:mt-0 mt-10 max-w-lg mx-auto ">
-          <details
+            <details
               className=" group [&_summary::-webkit-details-marker]:hidden"
               open
             >
@@ -214,37 +182,7 @@ const Faq = () => {
                 minutes.
               </p>
             </details>
-            <details
-              className=" group [&_summary::-webkit-details-marker]:hidden"
-              open
-            >
-              <summary className="flex cursor-pointer items-center border border-mainColor justify-between gap-1.5 rounded-lg bg-[#131a22] p-4 ">
-                <h2 className="font-medium text-mainColor">
-                  Can I withdraw my earnings at any time?
-                </h2>
 
-                <svg
-                  className="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-180 text-mainColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </summary>
-
-              <p className="mt-4 p-4 text-sm rounded-md leading-relaxed text-secondColor font-medium bg-[#131a22]">
-                Yes, you can request a withdrawal at any time. Simply log in, go
-                to the <b>Withdraw</b> section, choose your withdrawal method,
-                and follow the provided instructions.
-              </p>
-            </details>
             <details
               className=" group [&_summary::-webkit-details-marker]:hidden"
               open

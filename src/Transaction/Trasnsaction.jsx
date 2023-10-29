@@ -32,12 +32,12 @@ const Trasnsaction = () => {
   return (
     <div className="bg-black">
       <div className="max-w-screen-2xl mx-auto px-4">
-        <div className="md:space-y-7 py-10 space-y-4 text-white max-w-2xl mx-auto">
+        <div className="md:space-y-7 py-6 space-y-4 text-white max-w-2xl mx-auto">
           {" "}
-          <h1 className="font-bold md:text-5xl text-[32px] px-4 text-mainColor md:text-center">
-            Our Latest Transaction
+          <h1 className="font-bold md:text-5xl text-[30px] text-mainColor md:text-center">
+            Latest Transaction
           </h1>
-          <p className="text-sm md:text-base md:text-center text-left px-4 text-secondColor">
+          <p className="text-sm md:text-base md:text-center text-left  text-secondColor">
             Our Latest Transaction: Stay updated with your financial activity.
             Check our table for the most recent deposits and withdrawals in
             real-time

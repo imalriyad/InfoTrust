@@ -10,7 +10,7 @@ const BlogCard = ({blog}) => {
              <div className="flex flex-col overflow-hidden rounded-lg border border-mainColor  ">
               <a
                 href="#"
-                className="group relative block h-48 overflow-hidden md:h-42"
+                className="group relative block h-32 md:h-44 overflow-hidden"
               >
                 <img
                   src={thumbnail}

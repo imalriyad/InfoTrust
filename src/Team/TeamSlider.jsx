@@ -26,10 +26,10 @@ export default function TeamSlider() {
       <div className="mx-auto max-w-screen-xl md:px-10 px-4 py-4 md:py-14">
         <div className="md:space-y-7 py-10 space-y-4 text-white max-w-2xl mx-auto">
           {" "}
-          <h1 className="font-bold md:text-5xl text-[32px] px-4 text-mainColor md:text-center">
+          <h1 className="font-bold md:text-5xl text-[32px] text-mainColor md:text-center">
             Our Top Investor
           </h1>
-          <p className="text-sm md:text-base md:text-center text-left px-4 text-secondColor">
+          <p className="text-sm md:text-base md:text-center text-left text-secondColor">
             Celebrating Customer Feedback: Explore Testimonials, Insights,
             Praise, and the Voice of our Valued Clients. Discover what people
             say about us and our unwavering commitment to excellence
