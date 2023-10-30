@@ -26,7 +26,6 @@ const Faq = () => {
           <div className="space-y-10 max-w-xl mx-auto ">
             <details
               className=" group [&_summary::-webkit-details-marker]:hidden"
-              open
             >
               <summary className="flex cursor-pointer items-center border border-mainColor justify-between gap-1.5 rounded-lg bg-[#131a22] p-4 ">
                 <h2 className="font-medium text-mainColor">
@@ -59,7 +58,7 @@ const Faq = () => {
 
             <details
               className=" group [&_summary::-webkit-details-marker]:hidden"
-              open
+             
             >
               <summary className="flex cursor-pointer items-center border border-mainColor justify-between gap-1.5 rounded-lg bg-[#131a22] p-4 ">
                 <h2 className="font-medium text-mainColor">
@@ -91,7 +90,7 @@ const Faq = () => {
 
             <details
               className=" group [&_summary::-webkit-details-marker]:hidden"
-              open
+           
             >
               <summary className="flex cursor-pointer items-center border border-mainColor justify-between gap-1.5 rounded-lg bg-[#131a22] p-4 ">
                 <h2 className="font-medium text-mainColor">
@@ -123,7 +122,7 @@ const Faq = () => {
           <div className="space-y-10 md:mt-0 mt-10 max-w-lg mx-auto ">
             <details
               className=" group [&_summary::-webkit-details-marker]:hidden"
-              open
+             
             >
               <summary className="flex cursor-pointer items-center border border-mainColor justify-between gap-1.5 rounded-lg bg-[#131a22] p-4 ">
                 <h2 className="font-medium text-mainColor">
@@ -153,7 +152,7 @@ const Faq = () => {
             </details>
             <details
               className=" group [&_summary::-webkit-details-marker]:hidden"
-              open
+              
             >
               <summary className="flex cursor-pointer items-center border border-mainColor justify-between gap-1.5 rounded-lg bg-[#131a22] p-4 ">
                 <h2 className="font-medium text-mainColor">
@@ -185,7 +184,7 @@ const Faq = () => {
 
             <details
               className=" group [&_summary::-webkit-details-marker]:hidden"
-              open
+             
             >
               <summary className="flex cursor-pointer items-center border border-mainColor justify-between gap-1.5 rounded-lg bg-[#131a22] p-4 ">
                 <h2 className="font-medium text-mainColor">

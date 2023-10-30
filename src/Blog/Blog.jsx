@@ -26,7 +26,7 @@ const Blog = () => {
             </p>
           </div>
 
-         <div className="md:block hidden"> <div className="grid gap-4 md:py-6 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8">
+         <div className="md:block hidden"> <div className="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-2 xl:grid-cols-2 xl:gap-8">
            {
             blogs?.map(blog => <BlogCard key={blog.id} blog={blog}></BlogCard>)
 

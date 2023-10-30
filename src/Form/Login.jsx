@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
-import GoogleLogin from "./GoogleLogin";
-import {HiEye,HiEyeOff} from 'react-icons/hi'
+/* eslint-disable react/no-unescaped-entities */
 import { useState } from "react";
+import GoogleLogin from "./GoogleLogin";
+import { HiEye, HiEyeOff } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
-const Registration = () => {
-const [isShow ,setShow] = useState(false)
+const Login = () => {
+  const [isShow, setShow] = useState(false);
   return (
     <div>
       <section className="relative z-10 overflow-hidden bg-black text-white py-5 lg:py-[40px]">
@@ -17,19 +18,11 @@ const [isShow ,setShow] = useState(false)
             />
             <div className="px-4 xl:w-[30%] lg:w-2/3 w-full">
               <div className="relative  rounded-lg shadow-lg dark:bg-dark-2 ">
-                <form >
-                <h1 className="text-4xl font-bold py-6 text-mainColor">Registration</h1>
-                   <div className="mb-6 ">
-                    <span className="font-semibold text-secondColor">
-                      Name
-                    </span>
-                    <input
-                      type="text"
-                      placeholder="Your Full Name"
-                      required
-                      className="border-stroke mt-2 text-black text-body-color focus:border-mainColor w-full rounded border py-3 px-[14px] text-sm outline-none "
-                    />
-                  </div>
+                <form>
+                  <h1 className="text-4xl font-bold py-6 text-mainColor">
+                    Login
+                  </h1>
+
                   <div className="mb-6 ">
                     <span className="font-semibold text-secondColor">
                       Email
@@ -41,56 +34,46 @@ const [isShow ,setShow] = useState(false)
                       className="border-stroke mt-2 text-black text-body-color focus:border-mainColor w-full rounded border py-3 px-[14px] text-sm outline-none "
                     />
                   </div>
-                  <div className="mb-6 ">
-                    <span className="font-semibold text-secondColor">
-                     Phone
-                    </span>
-                    <input
-                      type="text"
-                      placeholder="Your Phone Number"
-                      required
-                      className="border-stroke mt-2 text-black text-body-color focus:border-mainColor w-full rounded border py-3 px-[14px] text-sm outline-none "
-                    />
-                  </div>
-                  <div className="mb-6 relative">
+
+                  <div className="mb-4 relative">
                     <span className="font-semibold text-secondColor">
                       Password
                     </span>
                     <input
-                      type={isShow?'text':'password'}
+                      type={isShow ? "text" : "password"}
                       placeholder="Your Password"
                       required
                       className="border-stroke mt-2 text-black text-body-color focus:border-mainColor w-full rounded border py-3 px-[14px] text-sm outline-none "
                     />
-                    <div className="cursor-pointer" onClick={()=>setShow(!isShow)}>{
-                      isShow?<HiEyeOff className="text-xl text-black  absolute right-3 bottom-3"></HiEyeOff>:<HiEye className="text-xl text-black  absolute right-3 bottom-3"></HiEye>}</div>
+                    <div
+                      className="cursor-pointer"
+                      onClick={() => setShow(!isShow)}
+                    >
+                      {isShow ? (
+                        <HiEyeOff className="text-xl text-black  absolute right-3 bottom-3"></HiEyeOff>
+                      ) : (
+                        <HiEye className="text-xl text-black  absolute right-3 bottom-3"></HiEye>
+                      )}
+                    </div>
                   </div>
+                  <span className="text-sm flex gap-2">
+                    Forgot password?<Link to={'/ResetPass'} className="underline">Reset</Link>
+                  </span>
 
-                  {/* <div className="mb-6 ">
-                    <span className="font-semibold text-secondColor">
-                      Crypto Address
-                    </span>
-                    <input
-                      type="text"
-                      placeholder="Your TRC20 Crypto Address"
-                      required
-                      className="border-stroke mt-2 text-black text-body-color focus:border-mainColor w-full rounded border py-3 px-[14px] text-sm outline-none "
-                    />
-                  </div> */}
-                  <div>
+                  <div className="mt-3">
                     <button
                       type="submit"
                       className="w-full p-3 transition rounded bg-mainColor font-bold text-black hover:bg-opacity-90"
                     >
-                      Registration
+                      Login
                     </button>
                     <p className="py-3 ">
-                      Already have an Account?
+                      Don't have an Account?
                       <Link
-                        to={"/Login"}
+                        to={"/Registration"}
                         className="btn-link text-mainColor font-semibold ml-2"
                       >
-                        Login
+                        Registration
                       </Link>
                     </p>
                   </div>
@@ -897,4 +880,4 @@ const [isShow ,setShow] = useState(false)
   );
 };
 
-export default Registration;
+export default Login;

@@ -24,10 +24,18 @@ const PostDetails = () => {
             <h1 className="md:text-4xl text-xl md:py-6 py-2 text-white">
               {title}
             </h1>
-            <p className="text-secondColor text-sm md:text-base">{description.slice(0, 400)}</p>
-            <p className="text-secondColor text-sm md:text-base">{description.slice(401, 700)}</p>
-            <p className="text-secondColor text-sm md:text-base">{description.slice(701, 1400)}</p>
-            <p className="text-secondColor text-sm md:text-base">{description.slice(1401)}</p>
+            <p className="text-secondColor text-sm md:text-base">
+              {description.slice(0, 400)}
+            </p>
+            <p className="text-secondColor text-sm md:text-base">
+              {description.slice(401, 700)}
+            </p>
+            <p className="text-secondColor text-sm md:text-base">
+              {description.slice(701, 1400)}
+            </p>
+            <p className="text-secondColor text-sm md:text-base">
+              {description.slice(1401)}
+            </p>
             <button
               className="btn btn-sm bg-mainColor hover:bg-mainColor border-none"
               onClick={goBack}
@@ -35,9 +43,9 @@ const PostDetails = () => {
               Go Back
             </button>
           </div>
-          <div className="lg:w-1/3 space-y-5 pb-10">
+          <div className="lg:w-2/3 space-y-5 pb-10">
             <h1 className="text-white text-4xl font-semibold">Lastest News</h1>
-            {blogs?.slice(2, 5).map((blog) => (
+            {blogs?.slice(0,7).map((blog) => (
               <BlogCard key={blog.id} blog={blog}></BlogCard>
             ))}
           </div>

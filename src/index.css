@@ -24,3 +24,6 @@
     width: 100%;
 }
 
+.sidemenu a.active{
+    border-bottom: 2px solid #DAF985;
+}

@@ -49,7 +49,7 @@ const Trasnsaction = () => {
               setDeposit(!isDeposit), handledepositBtnBg();
             }}
             id="depoButton"
-            className=" btn flex  items-center normal-case text-sm md:text-base p-2 px-4 md:px-6 md:py-3 rounded mr-2  border-none font-bold"
+            className="btn btn-sm rounded-sm"
           >
             Deposit
           </button>
@@ -60,7 +60,7 @@ const Trasnsaction = () => {
               handleWithdrawBtnBg();
             }}
             id="withdrawButton"
-            className="btn hover:bg-mainColor bg-mainColor flex items-center normal-case text-sm md:text-base p-2 px-4 md:px-6 md:py-3 rounded mr-2 border-none font-bold"
+            className="btn btn-sm rounded-sm bg-mainColor hover:bg-mainColor"
           >
             Withdraw
           </button>

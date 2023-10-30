@@ -1,9 +1,13 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const navigate = useNavigate();
+  const goRegistration = () => {
+    navigate("/Registration");
+  };
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -23,6 +27,7 @@ const Navbar = () => {
         </a>
         <div className="flex md:order-2">
           <button
+            onClick={goRegistration}
             type="button"
             className=" translate-y-0 active:translate-y-1 active:duration-300 bg-mainColor normal-case text-sm md:text-base p-2 px-3 md:px-6 md:py-3 rounded mr-2 hover:bg-mainColor border-none font-bold "
           >
@@ -72,9 +77,10 @@ const Navbar = () => {
                 About
               </li>
             </Link>
-            <li className="block py-2 pl-3 pr-4 rounded text-white hover:text-mainColor font-semibold ">
+             <Link to={'/Services'}>
+             <li className="block py-2 pl-3 pr-4 rounded text-white hover:text-mainColor font-semibold ">
               Services
-            </li>
+            </li></Link>
             <Link to={"/Contact"}>
               <li className="block py-2 pl-3 pr-4 rounded text-white hover:text-mainColor font-semibold ">
                 Contact

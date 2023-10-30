@@ -6,6 +6,12 @@ import Blog from "../Blog/Blog";
 import PostDetails from "../Blog/PostDetails";
 import Faq from "../Components/Faq";
 import Registration from "../Form/Registration";
+import Login from "../Form/Login";
+import ResetPass from "../Form/ResetPass";
+import Services from "../Pages/Services";
+import Dashboard from "../Dashboard/Dashboard";
+import States from "../Dashboard/States";
+import Market from "../Dashboard/Market";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +35,10 @@ const router = createBrowserRouter([
         element: <Faq></Faq>,
       },
       {
+        path: "/Services",
+        element: <Services></Services>,
+      },
+      {
         path: "/PostDetails/:id",
         element: <PostDetails></PostDetails>,
         loader: () => fetch('https://api.npoint.io/6a872fcb5bf1f03e2360'),
@@ -39,10 +49,29 @@ const router = createBrowserRouter([
       },
       {
         path:'/Login',
-        element:<Registration></Registration>
+        element:<Login></Login>
+      },
+      {
+        path:'/ResetPass',
+        element:<ResetPass></ResetPass>
       }
     ],
+
   },
+  {
+    path:'/Dashboard',
+    element:<Dashboard></Dashboard>,
+    children:([
+      {
+        path:'Dashboard',
+        element:<States></States>
+      },
+      {
+        path:'Market',
+        element:<Market></Market>
+      }
+    ])
+  }
 ]);
 
 export default router;
