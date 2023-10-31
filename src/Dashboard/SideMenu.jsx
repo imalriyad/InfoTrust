@@ -23,14 +23,14 @@ const SideMenu = () => {
         />
         Market
       </NavLink>
-      <li className="xl:text-xl lg:text-lg flex gap-5 items-center tracking-wide py-4">
+      <NavLink to={'Deposit'} className="xl:text-xl lg:text-lg flex gap-5 items-center tracking-wide py-4">
         <img
           src="https://i.postimg.cc/JzjQXbYL/deposit.png"
           className="w-[30px]"
           alt=""
         />
         Deposit
-      </li>
+      </NavLink>
 
       <li className="xl:text-xl lg:text-lg flex gap-5 items-center tracking-wide py-4">
         <img

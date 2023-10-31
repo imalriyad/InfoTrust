@@ -12,6 +12,7 @@ import Packages from "../Pages/Packages";
 import Dashboard from "../Dashboard/Dashboard";
 import States from "../Dashboard/States";
 import Market from "../Dashboard/Market";
+import Deposit from "../Dashboard/Deposit";
 
 const router = createBrowserRouter([
   {
@@ -69,6 +70,10 @@ const router = createBrowserRouter([
       {
         path:'Market',
         element:<Market></Market>
+      },
+      {
+        path:'Deposit',
+        element:<Deposit></Deposit>
       }
     ])
   }
