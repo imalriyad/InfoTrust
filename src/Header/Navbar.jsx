@@ -77,9 +77,9 @@ const Navbar = () => {
                 About
               </li>
             </Link>
-             <Link to={'/Services'}>
+             <Link to={'/Packages'}>
              <li className="block py-2 pl-3 pr-4 rounded text-white hover:text-mainColor font-semibold ">
-              Services
+             Packages
             </li></Link>
             <Link to={"/Contact"}>
               <li className="block py-2 pl-3 pr-4 rounded text-white hover:text-mainColor font-semibold ">

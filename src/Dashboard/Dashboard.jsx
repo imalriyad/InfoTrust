@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import SideMenu from "./SideMenu";
 
 const Dashboard = () => {
@@ -7,7 +7,7 @@ const Dashboard = () => {
       <div className="grid grid-cols-10 gap-5 mr-10">
         {/* Dashboard sidemenu */}
         <div className="bg-[#2f3542] h-screen row-span-6 col-span-2">
-          <div className="flex items-center justify-center py-6">
+          <Link to={'/'} className="flex items-center justify-center py-6">
             <img
               src="https://i.postimg.cc/26H5JtYk/tradex-Cta-logo.png"
               className="h-10 mr-3"
@@ -16,7 +16,7 @@ const Dashboard = () => {
             <span className="self-center text-white xl:text-3xl lg:text-xl font-semibold whitespace-nowrap ">
               InvoTrust
             </span>
-          </div>
+          </Link>
 
           <SideMenu></SideMenu>
         </div>
