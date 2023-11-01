@@ -6,7 +6,7 @@ const Navbar = () => {
 
   const navigate = useNavigate();
   const goRegistration = () => {
-    navigate("/Registration");
+    navigate("/Dashboard/Dashboard");
   };
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);

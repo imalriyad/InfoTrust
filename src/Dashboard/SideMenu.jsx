@@ -32,14 +32,14 @@ const SideMenu = () => {
         Deposit
       </NavLink>
 
-      <li className="xl:text-xl lg:text-lg flex gap-5 items-center tracking-wide py-4">
+      <NavLink to={'Withdraw'} className="xl:text-xl lg:text-lg flex gap-5 items-center tracking-wide py-4">
         <img
           src="https://i.postimg.cc/1tV09wq2/withdrawal.png"
           className="w-[30px]"
           alt=""
         />
         Withdraw
-      </li>
+      </NavLink>
       <li className="xl:text-xl lg:text-lg flex gap-5 items-center tracking-wide py-4">
         <img
           src="https://i.postimg.cc/N004fd9N/settings.png"

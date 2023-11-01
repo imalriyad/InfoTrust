@@ -5,7 +5,7 @@ import { MdKeyboardArrowRight } from 'react-icons/md';
 const Hero = () => {
   const navigate = useNavigate()
   const goRegistration =()=>{
-     navigate('/Registration')
+     navigate('/Dashboard/Dashboard')
   }
   return (
     <div className="bg-black lg:py-16 md:py-10">

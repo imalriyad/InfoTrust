@@ -3,7 +3,7 @@ import { GiWallet } from "react-icons/gi";
 import { RiMoneyDollarBoxFill } from "react-icons/ri";
 
 import { useOutletContext } from "react-router-dom";
-const Deposit = () => {
+const Withdraw = () => {
   const isOpen = useOutletContext();
   return (
     <>
@@ -82,4 +82,4 @@ const Deposit = () => {
   );
 };
 
-export default Deposit;
+export default Withdraw;
