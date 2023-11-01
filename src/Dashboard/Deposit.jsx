@@ -1,35 +1,131 @@
-import { FaMoneyBillTrendUp, FaPeopleArrows } from "react-icons/fa6";
 import { GiWallet } from "react-icons/gi";
-import { RiMoneyDollarBoxFill } from "react-icons/ri";
-
+import { useRef } from "react";
 import { useOutletContext } from "react-router-dom";
+import toast from "react-hot-toast";
 const Deposit = () => {
   const isOpen = useOutletContext();
+  const inputRef1 = useRef(null);
+  const inputRef2 = useRef(null);
+  const inputRef3 = useRef(null);
+
+  const handleInputClick = (inputRef) => () => {
+    if (inputRef.current) {
+      inputRef.current.select();
+      document.execCommand("copy");
+      toast.success("Address Copied!");
+      const buttons = document.querySelectorAll(".btn");
+
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", (event) => {
+          const clickedButton = event.target;
+          clickedButton.innerText = "Copied";
+      
+          // Reset the button text after 2 seconds
+          setTimeout(() => {
+            clickedButton.innerText = "Copy";
+          }, 2000);
+        });
+      });
+    }
+  };
   return (
     <>
-     {/* For large screens, use the original layout */}
-     <div className="bg-[#2f3542] hidden lg:block cursor-pointer drop-shadow-md space-y-3 p-10 rounded-sm col-span-2 lg:col-span-2">
+      {/* For large screens, use the original layout */}
+      <div className="bg-[#2f3542] hidden lg:block cursor-pointer drop-shadow-md space-y-3 p-10 rounded-sm col-span-2 lg:col-span-2">
         <GiWallet className="text-4xl text-mainColor"></GiWallet>
         <h1 className="text-secondColor text-lg font-medium">Total Balance</h1>
         <h1 className="font-semibold text-white text-3xl">$240.74</h1>
       </div>
-      <div className="bg-[#2f3542] hidden lg:block cursor-pointer drop-shadow-md p-10 space-y-3 rounded-sm col-span-2 lg:col-span-2">
-        <FaMoneyBillTrendUp className="text-4xl text-mainColor"></FaMoneyBillTrendUp>
-        <h1 className="text-secondColor text-lg font-medium">Total spent</h1>
-        <h1 className="font-semibold text-3xl text-white">$130.40</h1>
-      </div>
-      <div className="bg-[#2f3542] hidden lg:block cursor-pointer drop-shadow-md space-y-3 p-10 rounded-sm col-span-2 lg:col-span-2">
-        <RiMoneyDollarBoxFill className="text-4xl text-mainColor"></RiMoneyDollarBoxFill>
-        <h1 className="text-secondColor text-lg font-medium">Total Profit</h1>
-        <h1 className="font-semibold text-3xl text-white">$175.40</h1>
-      </div>
-      <div className="bg-[#2f3542] hidden lg:block cursor-pointer drop-shadow-md space-y-3 p-10 rounded-sm col-span-2 lg:col-span-2">
-        <FaPeopleArrows className="text-4xl text-mainColor"></FaPeopleArrows>
-        <h1 className="text-secondColor text-lg font-medium">Total Referral</h1>
-        <h1 className="font-semibold text-white text-3xl">25</h1>
-      </div>
-      {/* For small screens (phones), place divs in a single row */}
 
+      <div className="bg-[#2f3542] hidden lg:block cursor-pointer drop-shadow-md space-y-3 p-10 rounded-sm col-span-2 lg:col-span-2">
+        <img
+          src="https://i.postimg.cc/Jhy2yp3M/tether-cryptocurrency.png"
+          alt=""
+        />
+        <h1 className="text-secondColor text-lg font-medium">USDT (TRC20)</h1>
+        <span className="flex">
+          <input
+            type="text"
+            onClick={handleInputClick(
+              inputRef1,
+              "TAQpCTFeJvwdWf6MQZtXXkzWrTS9aymshb"
+            )}
+            ref={inputRef1}
+            defaultValue={"TAQpCTFeJvwdWf6MQZtXXkzWrTS9aymshb"}
+            readOnly
+            placeholder="Type here"
+            className="input input-bordered input-sm rounded-sm w-full max-w-xs"
+          />
+          <button
+            onClick={handleInputClick(
+              inputRef1,
+              "TAQpCTFeJvwdWf6MQZtXXkzWrTS9aymshb"
+            )}
+            className="btn btn-sm normal-case rounded-sm text-xs btn-success"
+          >
+            Copy
+          </button>
+        </span>
+      </div>
+      <div className="bg-[#2f3542] hidden lg:block cursor-pointer drop-shadow-md p-10 space-y-3 rounded-sm col-span-2 lg:col-span-2">
+        <img
+          src="https://i.postimg.cc/9028nV6Q/binance-coin-cryptocurrency.png"
+          alt=""
+        />
+        <h1 className="text-secondColor text-lg font-medium">BNB (BEP20)</h1>
+        <span className="flex">
+          <input
+            type="text"
+            onClick={handleInputClick(
+              inputRef2,
+              "0xCE7de646e7208a4Ef112cb6ed5038FA6cC6b12e3"
+            )}
+            ref={inputRef2}
+            defaultValue={"0xCE7de646e7208a4Ef112cb6ed5038FA6cC6b12e"}
+            readOnly
+            placeholder="Type here"
+            className="input input-bordered input-sm rounded-sm w-full max-w-xs"
+          />
+          <button
+            onClick={handleInputClick(
+              inputRef2,
+              "TAQpCTFeJvwdWf6MQZtXXkzWrTS9aymshb"
+            )}
+            className="btn btn-sm normal-case rounded-sm text-xs btn-success"
+          >
+            Copy
+          </button>
+        </span>
+      </div>
+      <div className="bg-[#2f3542] hidden lg:block cursor-pointer drop-shadow-md space-y-3 p-10 rounded-sm col-span-2 lg:col-span-2">
+        <img
+          src="https://s2.coinmarketcap.com/static/img/coins/64x64/1958.png"
+          className="w-[32px]"
+          alt=""
+        />
+        <h1 className="text-secondColor text-lg font-medium">Tron (TRX)</h1>
+        <span className="flex">
+          <input
+            type="text"
+            ref={inputRef3}
+            defaultValue={"TAQpCTFeJvwdWf6MQZtXXkzWrTS9aymshb"}
+            readOnly
+            placeholder="Type here"
+            className="input input-bordered input-sm rounded-sm w-full max-w-xs"
+          />{" "}
+          <button
+            onClick={handleInputClick(
+              inputRef3,
+              "TAQpCTFeJvwdWf6MQZtXXkzWrTS9aymshb"
+            )}
+            className="btn btn-success btn-sm normal-case rounded-sm text-xs"
+          >
+            Copy
+          </button>
+        </span>
+      </div>
+
+      {/* For small screens (phones), place divs in a single row */}
       <div
         className={`lg:hidden block cursor-pointer drop-shadow-md space-y-4 rounded-sm col-span-10 md:col-span-full ${
           isOpen ? "hidden" : "block"
