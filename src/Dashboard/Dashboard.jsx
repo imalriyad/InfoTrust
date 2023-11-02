@@ -28,8 +28,8 @@ const Dashboard = () => {
 
         {/* Dashboard playGround */}
         <div className="bg-[#2f3542] drop-shadow-md lg:p-6 rounded-sm lg:col-span-8 col-span-full">
-          <h1 className="lg:text-xl lg:block hidden text-xs text-mainColor font-medium p-4">
-            Welcome to Dasboard. How is your day going mr @user?
+          <h1 className="lg:text-xl lg:block hidden text-xs text-gray-300 font-medium p-3">
+            Welcome to InvoTrust , How is your day going mr @user?
           </h1>
           {/* side menu for small devices */}
           <div className="lg:hidden block p-4 border ">

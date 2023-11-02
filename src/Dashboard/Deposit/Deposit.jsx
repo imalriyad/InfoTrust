@@ -2,6 +2,8 @@ import { GiWallet } from "react-icons/gi";
 import { useRef } from "react";
 import { useOutletContext } from "react-router-dom";
 import toast from "react-hot-toast";
+import DepositFrom from "./DepositFrom";
+import LatestDepoWithdraw from "./LatestDepoWith";
 const Deposit = () => {
   const isOpen = useOutletContext();
   const inputRef1 = useRef(null);
@@ -19,7 +21,7 @@ const Deposit = () => {
         btn.addEventListener("click", (event) => {
           const clickedButton = event.target;
           clickedButton.innerText = "Copied";
-      
+
           // Reset the button text after 2 seconds
           setTimeout(() => {
             clickedButton.innerText = "Copy";
@@ -46,10 +48,6 @@ const Deposit = () => {
         <span className="flex">
           <input
             type="text"
-            onClick={handleInputClick(
-              inputRef1,
-              "TAQpCTFeJvwdWf6MQZtXXkzWrTS9aymshb"
-            )}
             ref={inputRef1}
             defaultValue={"TAQpCTFeJvwdWf6MQZtXXkzWrTS9aymshb"}
             readOnly
@@ -76,10 +74,6 @@ const Deposit = () => {
         <span className="flex">
           <input
             type="text"
-            onClick={handleInputClick(
-              inputRef2,
-              "0xCE7de646e7208a4Ef112cb6ed5038FA6cC6b12e3"
-            )}
             ref={inputRef2}
             defaultValue={"0xCE7de646e7208a4Ef112cb6ed5038FA6cC6b12e"}
             readOnly
@@ -127,52 +121,126 @@ const Deposit = () => {
 
       {/* For small screens (phones), place divs in a single row */}
       <div
-        className={`lg:hidden block cursor-pointer drop-shadow-md space-y-4 rounded-sm col-span-10 md:col-span-full ${
+        className={`px-2 lg:hidden block cursor-pointer drop-shadow-md space-y-4 rounded-sm col-span-10 md:col-span-full ${
           isOpen ? "hidden" : "block"
         }`}
       >
-        <div className="flex justify-center gap-5 px-2">
-          <span className="flex gap-3 items-center md:w-full w-1/2 bg-[#2f3542] p-2">
+        <div className="flex justify-center gap-5 ">
+          <span className="flex gap-3 items-center w-full bg-[#2f3542] p-4">
             <GiWallet className="text-2xl text-mainColor"></GiWallet>
             <span className="flex flex-col">
-              <h1 className="text-secondColor font-medium text-xs">
+              <h1 className="text-secondColor font-medium text-base">
                 {" "}
                 Total Balance
               </h1>
-              <h1 className="font-semibold text-white text-lg">$240.74</h1>
-            </span>
-          </span>
-          <span className="flex gap-3 items-center md:w-full w-1/2 bg-[#2f3542] p-2">
-            <GiWallet className=" text-2xl text-mainColor"></GiWallet>
-            <span className="flex flex-col">
-              <h1 className="text-secondColor font-medium text-xs">
-                Total Spent
-              </h1>
-              <h1 className="font-semibold text-white text-lg">$240.74</h1>
+              <h1 className="font-semibold text-white text-xl">$240.74</h1>
             </span>
           </span>
         </div>
-        <div className="flex justify-center gap-5 px-2 ">
-          <span className="flex gap-3 items-center md:w-full w-1/2 bg-[#2f3542] p-2">
-            <GiWallet className="text-2xl text-mainColor"></GiWallet>
-            <span className="flex flex-col">
-              <h1 className="text-secondColor font-medium text-xs">
-                {" "}
-                Total Profit
-              </h1>
-              <h1 className="font-semibold text-white text-lg">$240.74</h1>
-            </span>
-          </span>
-          <span className="flex gap-3 items-center md:w-full w-1/2 bg-[#2f3542] p-2">
-            <GiWallet className=" text-2xl text-mainColor"></GiWallet>
-            <span className="flex flex-col">
-              <h1 className="text-secondColor font-medium text-xs">
-                Total Reffer
-              </h1>
-              <h1 className="font-semibold text-white text-lg">24</h1>
-            </span>
+
+        <div className="bg-[#2f3542] cursor-pointer drop-shadow-md space-y-3 p-5 rounded-sm col-span-2 lg:col-span-2">
+          <div className="flex gap-3 items-center">
+            {" "}
+            <img
+              src="https://i.postimg.cc/Jhy2yp3M/tether-cryptocurrency.png"
+              alt=""
+            />
+            <h1 className="text-secondColor text-lg font-medium">
+              USDT (TRC20)
+            </h1>
+          </div>
+          <span className="flex">
+            <input
+              type="text"
+              ref={inputRef3}
+              defaultValue={"TAQpCTFeJvwdWf6MQZtXXkzWrTS9aymshb"}
+              readOnly
+              placeholder="Type here"
+              className="input input-bordered input-sm rounded-sm w-full max-w-xs"
+            />{" "}
+            <button
+              onClick={handleInputClick(
+                inputRef3,
+                "TAQpCTFeJvwdWf6MQZtXXkzWrTS9aymshb"
+              )}
+              className="btn btn-success btn-sm normal-case rounded-sm text-xs"
+            >
+              Copy
+            </button>
           </span>
         </div>
+        <div className="bg-[#2f3542] cursor-pointer drop-shadow-md space-y-3 p-5 rounded-sm col-span-2 lg:col-span-2">
+          <div className="flex gap-3 items-center">
+            <img
+              src="https://i.postimg.cc/9028nV6Q/binance-coin-cryptocurrency.png"
+              alt=""
+            />
+            <h1 className="text-secondColor text-lg font-medium">
+              BNB (BEP20)
+            </h1>
+          </div>
+          <span className="flex">
+            <input
+              type="text"
+              ref={inputRef2}
+              defaultValue={"0xCE7de646e7208a4Ef112cb6ed5038FA6cC6b12e"}
+              readOnly
+              placeholder="Type here"
+              className="input input-bordered input-sm rounded-sm w-full max-w-xs"
+            />
+            <button
+              onClick={handleInputClick(
+                inputRef3,
+                "TAQpCTFeJvwdWf6MQZtXXkzWrTS9aymshb"
+              )}
+              className="btn btn-success btn-sm normal-case rounded-sm text-xs"
+            >
+              Copy
+            </button>
+          </span>
+        </div>
+        <div className="bg-[#2f3542] cursor-pointer drop-shadow-md space-y-3 p-5 rounded-sm col-span-2 lg:col-span-2">
+          <div className="flex gap-3 items-center">
+            <img
+              src="https://s2.coinmarketcap.com/static/img/coins/64x64/1958.png"
+              className="w-[32px]"
+              alt=""
+            />
+            <h1 className="text-secondColor text-lg font-medium">Tron (TRX)</h1>
+          </div>
+          <span className="flex">
+            <input
+              type="text"
+              ref={inputRef3}
+              defaultValue={"TAQpCTFeJvwdWf6MQZtXXkzWrTS9aymshb"}
+              readOnly
+              placeholder="Type here"
+              className="input input-bordered input-sm rounded-sm w-full max-w-xs"
+            />{" "}
+            <button
+              onClick={handleInputClick(
+                inputRef3,
+                "TAQpCTFeJvwdWf6MQZtXXkzWrTS9aymshb"
+              )}
+              className="btn btn-success btn-sm normal-case rounded-sm text-xs"
+            >
+              Copy
+            </button>
+          </span>
+        </div>
+      </div>
+
+      <div className="lg:col-span-4 col-span-10 px-4">
+        <h1 className="lg:text-2xl text-xl font-bold pb-5">
+          Fill out the form after transferring USDT/BSC/TRX to the Deposit
+          Address
+        </h1>
+        <DepositFrom></DepositFrom>
+      </div>
+      <div className="lg:col-span-4 col-span-10 px-4 lg:py-0 py-5">
+        
+        <h1 className="text-3xl py-4 font-bold">Latest Deposit</h1>
+        <LatestDepoWithdraw></LatestDepoWithdraw>
       </div>
     </>
   );

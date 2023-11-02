@@ -12,8 +12,8 @@ import Packages from "../Pages/Packages";
 import Dashboard from "../Dashboard/Dashboard";
 import States from "../Dashboard/States";
 import Market from "../Dashboard/Market";
-import Deposit from "../Dashboard/Deposit";
-import Withdraw from "../Dashboard/Withdraw";
+import Withdraw from "../Dashboard/Withdraw/Withdraw";
+import Deposit from "../Dashboard/Deposit/Deposit";
 
 
 const router = createBrowserRouter([

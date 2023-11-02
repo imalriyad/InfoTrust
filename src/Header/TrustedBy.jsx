@@ -34,7 +34,7 @@ const TrustedBy = () => {
               className="mx-4 flex md:w-[150px] w-[100px] items-center justify-center md:py-2 2xl:w-[200px]"
             >
               <img
-                src="https://1000logos.net/wp-content/uploads/2022/03/Coinbase-logo.png"
+                src="https://i.postimg.cc/zGpm44W1/Coinbase-logo.png"
                 alt="image"
                 className="w-full h-10 object-cover"
               />
