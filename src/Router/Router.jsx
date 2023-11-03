@@ -14,12 +14,15 @@ import States from "../Dashboard/States";
 import Market from "../Dashboard/Market";
 import Withdraw from "../Dashboard/Withdraw/Withdraw";
 import Deposit from "../Dashboard/Deposit/Deposit";
+import PrivateRoute from "../Private/PrivateRoute";
+import ErorrPage from "../Pages/ErorrPage";
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement:<ErorrPage></ErorrPage>,
     children: [
       {
         path: "/",
@@ -63,23 +66,24 @@ const router = createBrowserRouter([
   },
   {
     path:'/Dashboard',
-    element:<Dashboard></Dashboard>,
+    element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    errorElement:<ErorrPage></ErorrPage>,
     children:([
       {
         path:'Dashboard',
-        element:<States></States>
+        element: <PrivateRoute><States></States></PrivateRoute>
       },
       {
         path:'Market',
-        element:<Market></Market>
+        element:<PrivateRoute><Market></Market></PrivateRoute>
       },
       {
         path:'Deposit',
-        element:<Deposit></Deposit>
+        element:<PrivateRoute><Deposit></Deposit></PrivateRoute>
       },
       {
         path:'Withdraw',
-        element:<Withdraw></Withdraw>
+        element:<PrivateRoute><Withdraw></Withdraw></PrivateRoute>
       }
     ])
   }

@@ -1,10 +1,48 @@
 import { Link } from "react-router-dom";
 import GoogleLogin from "./GoogleLogin";
-import {HiEye,HiEyeOff} from 'react-icons/hi'
+import { HiEye, HiEyeOff } from "react-icons/hi";
 import { useState } from "react";
-
+import useAuth from "../Hooks/useAuth";
+import { sendEmailVerification, updateProfile } from "firebase/auth";
+import swal from "sweetalert";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 const Registration = () => {
-const [isShow ,setShow] = useState(false)
+  const [isShow, setShow] = useState(false);
+  const { registeration } = useAuth();
+  const navigate = useNavigate();
+  const handleRegistration = (e) => {
+    e.preventDefault();
+    const from = e.target;
+    const name = from.name.value;
+    const email = from.email.value;
+    const number = from.number.value;
+    const password = from.password.value;
+    const userDetails = {name,email,number,password}
+    console.log(userDetails);
+    if (password.length < 6) {
+      return toast.error("Password must be at least 6 characters long.");
+    }
+    
+    registeration(email, password)
+      .then((res) => {
+        updateProfile(res.user, {
+          displayName: name,
+        });
+        sendEmailVerification(res.user).then(() => {
+          swal(
+            "Congratulations",
+            "Email Verification Sent. Please Check Your Email",
+            "success",
+            {
+              button: "Okay",
+            }
+          );
+          navigate("/Login");
+        });
+      })
+      .catch((err) => toast.error(`${err.message.slice(17).replace(")", "")}`));
+  };
   return (
     <div>
       <section className="relative z-10 overflow-hidden bg-black text-white py-5 lg:py-[40px]">
@@ -17,15 +55,16 @@ const [isShow ,setShow] = useState(false)
             />
             <div className="px-4 xl:w-[30%] lg:w-2/3 w-full">
               <div className="relative  rounded-lg shadow-lg dark:bg-dark-2 ">
-                <form >
-                <h1 className="text-4xl font-bold py-6 text-mainColor">Registration</h1>
-                   <div className="mb-6 ">
-                    <span className="font-semibold text-secondColor">
-                      Name
-                    </span>
+                <form onSubmit={handleRegistration}>
+                  <h1 className="text-4xl font-bold py-6 text-mainColor">
+                    Registration
+                  </h1>
+                  <div className="mb-6 ">
+                    <span className="font-semibold text-secondColor">Name</span>
                     <input
                       type="text"
                       placeholder="Your Full Name"
+                      name="name"
                       required
                       className="border-stroke mt-2 text-black text-body-color focus:border-mainColor w-full rounded border py-3 px-[14px] text-sm outline-none "
                     />
@@ -36,6 +75,7 @@ const [isShow ,setShow] = useState(false)
                     </span>
                     <input
                       type="email"
+                      name="email"
                       placeholder="Your Email Address"
                       required
                       className="border-stroke mt-2 text-black text-body-color focus:border-mainColor w-full rounded border py-3 px-[14px] text-sm outline-none "
@@ -43,12 +83,13 @@ const [isShow ,setShow] = useState(false)
                   </div>
                   <div className="mb-6 ">
                     <span className="font-semibold text-secondColor">
-                     Phone
+                      Phone
                     </span>
                     <input
                       type="text"
                       placeholder="Your Phone Number"
                       required
+                      name="number"
                       className="border-stroke mt-2 text-black text-body-color focus:border-mainColor w-full rounded border py-3 px-[14px] text-sm outline-none "
                     />
                   </div>
@@ -57,26 +98,24 @@ const [isShow ,setShow] = useState(false)
                       Password
                     </span>
                     <input
-                      type={isShow?'text':'password'}
+                      type={isShow ? "text" : "password"}
                       placeholder="Your Password"
+                      name="password"
                       required
                       className="border-stroke mt-2 text-black text-body-color focus:border-mainColor w-full rounded border py-3 px-[14px] text-sm outline-none "
                     />
-                    <div className="cursor-pointer" onClick={()=>setShow(!isShow)}>{
-                      isShow?<HiEyeOff className="text-xl text-black  absolute right-3 bottom-3"></HiEyeOff>:<HiEye className="text-xl text-black  absolute right-3 bottom-3"></HiEye>}</div>
+                    <div
+                      className="cursor-pointer"
+                      onClick={() => setShow(!isShow)}
+                    >
+                      {isShow ? (
+                        <HiEyeOff className="text-xl text-black  absolute right-3 bottom-3"></HiEyeOff>
+                      ) : (
+                        <HiEye className="text-xl text-black  absolute right-3 bottom-3"></HiEye>
+                      )}
+                    </div>
                   </div>
 
-                  {/* <div className="mb-6 ">
-                    <span className="font-semibold text-secondColor">
-                      Crypto Address
-                    </span>
-                    <input
-                      type="text"
-                      placeholder="Your TRC20 Crypto Address"
-                      required
-                      className="border-stroke mt-2 text-black text-body-color focus:border-mainColor w-full rounded border py-3 px-[14px] text-sm outline-none "
-                    />
-                  </div> */}
                   <div>
                     <button
                       type="submit"

@@ -13,7 +13,7 @@ const TrustedBy = () => {
               className="mx-4 flex md:w-[150px] w-[100px] items-center justify-center md:py-2 2xl:w-[200px]"
             >
               <img
-                src="https://i.ibb.co/nnBb2zW/pngwing-com.png
+                src="https://i.postimg.cc/x1WjJ33C/Logo-01.png
                   "
                 alt="image"
                 className="w-full h-10 object-cover"
@@ -24,9 +24,9 @@ const TrustedBy = () => {
               className="mx-4 flex md:w-[150px] w-[100px] items-center justify-center md:py-2 2xl:w-[200px]"
             >
               <img
-                src="https://upload.wikimedia.org/wikipedia/commons/6/65/Latoken_Logo.svg"
+                src="https://i.postimg.cc/8kJSW6sf/Logo-04.png"
                 alt="image"
-                className="w-full h-10 object-fill"
+                className="w-full h-10 object-cover"
               />
             </a>
             <a
@@ -34,7 +34,7 @@ const TrustedBy = () => {
               className="mx-4 flex md:w-[150px] w-[100px] items-center justify-center md:py-2 2xl:w-[200px]"
             >
               <img
-                src="https://i.postimg.cc/zGpm44W1/Coinbase-logo.png"
+                src="https://i.postimg.cc/YjK8LV0R/Logo-03.png"
                 alt="image"
                 className="w-full h-10 object-cover"
               />
@@ -44,7 +44,7 @@ const TrustedBy = () => {
               className="mx-4 flex md:w-[150px] w-[100px] items-center justify-center md:py-2 2xl:w-[200px]"
             >
               <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxOcn7Rpbs3E531S3QlkplbHnBYsz-fWX6YA&usqp=CAU"
+                src="https://i.postimg.cc/T3mMSMnd/Logo-02.png"
                 alt="image"
                 className="w-full h-10 object-cover"
               />

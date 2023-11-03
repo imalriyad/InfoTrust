@@ -2,10 +2,42 @@
 import { useState } from "react";
 import GoogleLogin from "./GoogleLogin";
 import { HiEye, HiEyeOff } from "react-icons/hi";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../Hooks/useAuth";
+import swal from "sweetalert";
+import toast from "react-hot-toast";
 const Login = () => {
   const [isShow, setShow] = useState(false);
+  const { login, user } = useAuth();
+  const navigate = useNavigate();
+  console.log(user);
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const from = e.target;
+    const email = from.email.value;
+    const password = from.password.value;
+    const toastId = toast.loading("Loggedin....");
+    if (user?.emailVerified === false) {
+      return swal(
+        "Opss",
+        "Please check your email to verify your email address",
+        "error",
+        {
+          button: "Okay",
+        }
+      );
+    }
+    login(email, password)
+      .then(() => {
+        toast.success("Logged in Successful", { id: toastId });
+        navigate("/Dashboard/Dashboard");
+      })
+      .catch((err) =>
+        toast.error(`${err.message.slice(17).replace(")", "")},`, {
+          id: toastId,
+        })
+      );
+  };
   return (
     <div>
       <section className="relative z-10 overflow-hidden bg-black text-white py-5 lg:py-[40px]">
@@ -18,7 +50,7 @@ const Login = () => {
             />
             <div className="px-4 xl:w-[30%] lg:w-2/3 w-full">
               <div className="relative  rounded-lg shadow-lg dark:bg-dark-2 ">
-                <form>
+                <form onSubmit={handleLogin}>
                   <h1 className="text-4xl font-bold py-6 text-mainColor">
                     Login
                   </h1>
@@ -29,6 +61,7 @@ const Login = () => {
                     </span>
                     <input
                       type="email"
+                      name="email"
                       placeholder="Your Email Address"
                       required
                       className="border-stroke mt-2 text-black text-body-color focus:border-mainColor w-full rounded border py-3 px-[14px] text-sm outline-none "
@@ -42,6 +75,7 @@ const Login = () => {
                     <input
                       type={isShow ? "text" : "password"}
                       placeholder="Your Password"
+                      name="password"
                       required
                       className="border-stroke mt-2 text-black text-body-color focus:border-mainColor w-full rounded border py-3 px-[14px] text-sm outline-none "
                     />
@@ -57,7 +91,10 @@ const Login = () => {
                     </div>
                   </div>
                   <span className="text-sm flex gap-2">
-                    Forgot password?<Link to={'/ResetPass'} className="underline">Reset</Link>
+                    Forgot password?
+                    <Link to={"/ResetPass"} className="underline">
+                      Reset
+                    </Link>
                   </span>
 
                   <div className="mt-3">
