@@ -1,10 +1,19 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import useAuth from "../Hooks/useAuth";
+import toast from "react-hot-toast";
 const Navbar = () => {
+  const { user, logout } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const navigate = useNavigate();
+  const logOut = () => {
+    logout()
+      .then(() => {
+        toast.success("Successfully Logout!");
+        navigate("/");
+      })
+      .catch((err) => toast.error(`${err.message.slice(17).replace(")", "")}`));
+  };
   const goRegistration = () => {
     navigate("/Dashboard/Dashboard");
   };
@@ -15,7 +24,7 @@ const Navbar = () => {
   return (
     <nav className="bg-black border-gray-200 dark:bg-gray-900 px-4">
       <div className="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto py-6">
-        <a href="#" className="flex items-center">
+        <Link to={"/"} className="flex items-center">
           <img
             src="https://i.postimg.cc/26H5JtYk/tradex-Cta-logo.png"
             className="h-8 mr-3"
@@ -24,15 +33,25 @@ const Navbar = () => {
           <span className="self-center text-white md:text-2xl font-semibold whitespace-nowrap ">
             InvoTrust
           </span>
-        </a>
+        </Link>
         <div className="flex md:order-2">
-          <button
-            onClick={goRegistration}
-            type="button"
-            className=" translate-y-0 active:translate-y-1 active:duration-300 bg-mainColor normal-case text-sm md:text-base p-2 px-3 md:px-6 md:py-3 rounded mr-2 hover:bg-mainColor border-none font-bold "
-          >
-            Get started
-          </button>
+          {user?.email ? (
+            <button
+              onClick={logOut}
+              type="button"
+              className=" translate-y-0 active:translate-y-1 active:duration-300 bg-mainColor normal-case text-sm md:text-base p-2 px-3 md:px-6 md:py-3 rounded mr-2 hover:bg-mainColor border-none font-bold "
+            >
+              Log out
+            </button>
+          ) : (
+            <button
+              onClick={goRegistration}
+              type="button"
+              className=" translate-y-0 active:translate-y-1 active:duration-300 bg-mainColor normal-case text-sm md:text-base p-2 px-3 md:px-6 md:py-3 rounded mr-2 hover:bg-mainColor border-none font-bold "
+            >
+              Login
+            </button>
+          )}
           <button
             data-collapse-toggle="navbar-cta"
             type="button"
@@ -77,10 +96,11 @@ const Navbar = () => {
                 About
               </li>
             </Link>
-             <Link to={'/Packages'}>
-             <li className="block py-2 pl-3 pr-4 rounded text-white hover:text-mainColor font-semibold ">
-             Packages
-            </li></Link>
+            <Link to={"/Packages"}>
+              <li className="block py-2 pl-3 pr-4 rounded text-white hover:text-mainColor font-semibold ">
+                Packages
+              </li>
+            </Link>
             <Link to={"/Contact"}>
               <li className="block py-2 pl-3 pr-4 rounded text-white hover:text-mainColor font-semibold ">
                 Contact
