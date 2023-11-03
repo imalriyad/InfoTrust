@@ -16,7 +16,7 @@ const Login = () => {
     const from = e.target;
     const email = from.email.value;
     const password = from.password.value;
-    const toastId = toast.loading("Loggedin....");
+
     if (user?.emailVerified === false) {
       return swal(
         "Opss",
@@ -27,13 +27,14 @@ const Login = () => {
         }
       );
     }
+    const toastId = toast.loading("logging....");
     login(email, password)
       .then(() => {
         toast.success("Logged in Successful", { id: toastId });
         navigate("/Dashboard/Dashboard");
       })
       .catch((err) =>
-        toast.error(`${err.message.slice(17).replace(")", "")},`, {
+        toast.error(`${err.message.slice(17).replace(")", "")}`, {
           id: toastId,
         })
       );

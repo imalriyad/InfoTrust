@@ -1,8 +1,11 @@
 /* eslint-disable react/prop-types */
 import {
+  GoogleAuthProvider,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
+  signInWithPopup,
 } from "firebase/auth";
 import { useState, useEffect } from "react";
 import { createContext } from "react";
@@ -21,6 +24,15 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
+  const googleLogin = () => {
+    const googleAuthProvider = new GoogleAuthProvider();
+    return signInWithPopup(auth, googleAuthProvider);
+  };
+
+  const passwordReset = (email) => {
+    setLoading(true);
+    return sendPasswordResetEmail(auth, email);
+  };
   useEffect(() => {
     const unsubScribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -31,6 +43,8 @@ const AuthProvider = ({ children }) => {
   const authInfo = {
     registeration,
     login,
+    passwordReset,
+    googleLogin,
     isLoading,
     user,
   };
