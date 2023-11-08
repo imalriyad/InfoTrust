@@ -1,12 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import TrustedBy from "./TrustedBy";
-import { MdKeyboardArrowRight } from 'react-icons/md';
+import { MdKeyboardArrowRight } from "react-icons/md";
+import useAuth from "../Hooks/useAuth";
 
 const Hero = () => {
-  const navigate = useNavigate()
-  const goRegistration =()=>{
-     navigate('/Dashboard/Dashboard')
-  }
+  const navigate = useNavigate();
+  const { user } = useAuth();
+  const goRegistration = () => {
+    if (user?.emailVerified) {
+      navigate("/Dashboard/Dashboard");
+    } else {
+      navigate("/Login");
+    }
+  };
   return (
     <div className="bg-black lg:py-16 md:py-10">
       <div className="lg:h-[75vh] md:h-screen md:py-2 py-10 max-w-screen-2xl mx-auto">
@@ -32,11 +38,12 @@ const Hero = () => {
               <span className="text-mainColor">world-renowned markets.</span>
             </p>
             <button
-            onClick={goRegistration}
+              onClick={goRegistration}
               type="button"
               className=" translate-y-0 active:translate-y-1 active:duration-300 bg-mainColor normal-case text-sm md:text-base p-2 px-3 md:px-6 md:py-3 rounded mr-2 hover:bg-mainColor border-none font-bold flex items-center gap-0"
             >
-              Get started <MdKeyboardArrowRight className="text-xl lg:block hidden"></MdKeyboardArrowRight>
+              Get started{" "}
+              <MdKeyboardArrowRight className="text-xl lg:block hidden"></MdKeyboardArrowRight>
             </button>
           </div>
         </div>

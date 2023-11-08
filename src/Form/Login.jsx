@@ -6,10 +6,12 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 import swal from "sweetalert";
 import toast from "react-hot-toast";
+import useAxios from "../Hooks/useAxios";
 const Login = () => {
   const [isShow, setShow] = useState(false);
   const { login, user } = useAuth();
   const navigate = useNavigate();
+  const axios = useAxios();
   console.log(user);
   const handleLogin = (e) => {
     e.preventDefault();
@@ -19,7 +21,7 @@ const Login = () => {
 
     if (user?.emailVerified === false) {
       return swal(
-        "Opss",
+        "Error",
         "Please check your email to verify your email address",
         "error",
         {
@@ -28,8 +30,10 @@ const Login = () => {
       );
     }
     const toastId = toast.loading("logging....");
+    const loggedInUser =  email;
     login(email, password)
       .then(() => {
+        axios.post("/auth/access-token", { email: loggedInUser });
         toast.success("Logged in Successful", { id: toastId });
         navigate("/Dashboard/Dashboard");
       })
@@ -39,6 +43,8 @@ const Login = () => {
         })
       );
   };
+
+ 
   return (
     <div>
       <section className="relative z-10 overflow-hidden bg-black text-white py-5 lg:py-[40px]">
@@ -78,6 +84,7 @@ const Login = () => {
                       placeholder="Your Password"
                       name="password"
                       required
+                    
                       className="border-stroke mt-2 text-black text-body-color focus:border-mainColor w-full rounded border py-3 px-[14px] text-sm outline-none "
                     />
                     <div

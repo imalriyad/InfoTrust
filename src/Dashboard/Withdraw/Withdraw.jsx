@@ -8,7 +8,7 @@ const Withdraw = () => {
   return (
     <>
       {/* Large screen elements */}
-      <div className="bg-[#2f3542] hidden lg:block cursor-pointer drop-shadow-md space-y-3 p-10 rounded-sm col-span-8">
+      <div className="bg-[#130f40] hidden lg:block cursor-pointer drop-shadow-md space-y-3 p-10 rounded-sm col-span-8">
         <GiWallet className="text-4xl text-mainColor"></GiWallet>
         <h1 className="text-secondColor text-lg font-medium">Total Balance</h1>
         <h1 className="font-semibold text-white text-3xl">$240.74</h1>
@@ -22,7 +22,7 @@ const Withdraw = () => {
         }`}
       >
         <div className="flex justify-center gap-5 ">
-          <span className="flex gap-3 items-center w-full bg-[#2f3542] p-4">
+          <span className="flex gap-3 items-center w-full bg-[#130f40] p-4">
             <GiWallet className="text-2xl text-mainColor"></GiWallet>
             <span className="flex flex-col">
               <h1 className="text-secondColor font-medium text-base">

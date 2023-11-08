@@ -16,13 +16,14 @@ import Withdraw from "../Dashboard/Withdraw/Withdraw";
 import Deposit from "../Dashboard/Deposit/Deposit";
 import PrivateRoute from "../Private/PrivateRoute";
 import ErorrPage from "../Pages/ErorrPage";
-
+import PricingDash from "../Dashboard/PricingDash";
+import Settings from "../Dashboard/Settings";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-    errorElement:<ErorrPage></ErorrPage>,
+    errorElement: <ErorrPage></ErorrPage>,
     children: [
       {
         path: "/",
@@ -47,46 +48,81 @@ const router = createBrowserRouter([
       {
         path: "/PostDetails/:id",
         element: <PostDetails></PostDetails>,
-        loader: () => fetch('https://api.npoint.io/6a872fcb5bf1f03e2360'),
+        loader: () => fetch("https://api.npoint.io/6a872fcb5bf1f03e2360"),
       },
       {
-        path:'/Registration',
-        element:<Registration></Registration>
+        path: "/Registration",
+        element: <Registration></Registration>,
       },
       {
-        path:'/Login',
-        element:<Login></Login>
+        path: "/Login",
+        element: <Login></Login>,
       },
       {
-        path:'/ResetPass',
-        element:<ResetPass></ResetPass>
-      }
+        path: "/ResetPass",
+        element: <ResetPass></ResetPass>,
+      },
     ],
-
   },
   {
-    path:'/Dashboard',
-    element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
-    errorElement:<ErorrPage></ErorrPage>,
-    children:([
+    path: "/Dashboard",
+    element: (
+      <PrivateRoute>
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
+    errorElement: <ErorrPage></ErorrPage>,
+    children: [
       {
-        path:'Dashboard',
-        element: <PrivateRoute><States></States></PrivateRoute>
+        path: "Dashboard",
+        element: (
+          <PrivateRoute>
+            <States></States>
+          </PrivateRoute>
+        ),
       },
       {
-        path:'Market',
-        element:<PrivateRoute><Market></Market></PrivateRoute>
+        path: "Market",
+        element: (
+          <PrivateRoute>
+            <Market></Market>
+          </PrivateRoute>
+        ),
       },
       {
-        path:'Deposit',
-        element:<PrivateRoute><Deposit></Deposit></PrivateRoute>
+        path: "Deposit",
+        element: (
+          <PrivateRoute>
+            <Deposit></Deposit>
+          </PrivateRoute>
+        ),
       },
       {
-        path:'Withdraw',
-        element:<PrivateRoute><Withdraw></Withdraw></PrivateRoute>
-      }
-    ])
-  }
+        path: "Withdraw",
+        element: (
+          <PrivateRoute>
+            <Withdraw></Withdraw>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "Packages",
+        element: (
+          <PrivateRoute>
+            <PricingDash></PricingDash>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "Settings",
+        element: (
+          <PrivateRoute>
+            <Settings></Settings>
+          </PrivateRoute>
+        ),
+      },
+    ],
+  },
 ]);
 
 export default router;

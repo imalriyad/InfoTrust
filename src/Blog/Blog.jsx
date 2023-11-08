@@ -1,15 +1,13 @@
 import { useEffect, useState } from "react";
 import BlogCard from "./BlogCard";
-
+import useAxios from "../Hooks/useAxios";
 const Blog = () => {
   const [blogs, setBogs] = useState([]);
+  const axios = useAxios();
 
   useEffect(() => {
-    fetch("blog.json")
-      .then((res) => res.json())
-      .then((data) => setBogs(data));
-
-  }, []);
+    axios.get("/blogs").then((res) => setBogs(res.data));
+  }, [axios]);
   return (
     <div>
       <div className="bg-black py-6 sm:py-8 lg:py-12">
@@ -26,18 +24,19 @@ const Blog = () => {
             </p>
           </div>
 
-         <div className="md:block hidden"> <div className="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-2 xl:grid-cols-2 xl:gap-8">
-           {
-            blogs?.map(blog => <BlogCard key={blog.id} blog={blog}></BlogCard>)
-
-           }
-           </div></div>
-           <div className="md:hidden space-y-4 block">
-            {
-               blogs?.slice(0,3).map(blog => <BlogCard key={blog.id} blog={blog}></BlogCard>)
-            }
-           </div>
-          
+          <div className="md:block hidden">
+            {" "}
+            <div className="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-2 xl:grid-cols-2 xl:gap-8">
+              {blogs?.map((blog) => (
+                <BlogCard key={blog.id} blog={blog}></BlogCard>
+              ))}
+            </div>
+          </div>
+          <div className="md:hidden space-y-4 block">
+            {blogs?.slice(0, 3).map((blog) => (
+              <BlogCard key={blog.id} blog={blog}></BlogCard>
+            ))}
+          </div>
         </div>
       </div>
     </div>

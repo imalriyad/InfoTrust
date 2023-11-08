@@ -33,13 +33,13 @@ const Deposit = () => {
   return (
     <>
       {/* For large screens, use the original layout */}
-      <div className="bg-[#2f3542] hidden lg:block cursor-pointer drop-shadow-md space-y-3 p-10 rounded-sm col-span-2 lg:col-span-2">
+      <div className="bg-[#130f40] hidden lg:block cursor-pointer drop-shadow-md space-y-3 p-10 rounded-sm col-span-2 lg:col-span-2">
         <GiWallet className="text-4xl text-mainColor"></GiWallet>
         <h1 className="text-secondColor text-lg font-medium">Total Balance</h1>
         <h1 className="font-semibold text-white text-3xl">$240.74</h1>
       </div>
 
-      <div className="bg-[#2f3542] hidden lg:block cursor-pointer drop-shadow-md space-y-3 p-10 rounded-sm col-span-2 lg:col-span-2">
+      <div className="bg-[#130f40] hidden lg:block cursor-pointer drop-shadow-md space-y-3 p-10 rounded-sm col-span-2 lg:col-span-2">
         <img
           src="https://i.postimg.cc/Jhy2yp3M/tether-cryptocurrency.png"
           alt=""
@@ -65,7 +65,7 @@ const Deposit = () => {
           </button>
         </span>
       </div>
-      <div className="bg-[#2f3542] hidden lg:block cursor-pointer drop-shadow-md p-10 space-y-3 rounded-sm col-span-2 lg:col-span-2">
+      <div className="bg-[#130f40] hidden lg:block cursor-pointer drop-shadow-md p-10 space-y-3 rounded-sm col-span-2 lg:col-span-2">
         <img
           src="https://i.postimg.cc/9028nV6Q/binance-coin-cryptocurrency.png"
           alt=""
@@ -91,7 +91,7 @@ const Deposit = () => {
           </button>
         </span>
       </div>
-      <div className="bg-[#2f3542] hidden lg:block cursor-pointer drop-shadow-md space-y-3 p-10 rounded-sm col-span-2 lg:col-span-2">
+      <div className="bg-[#130f40] hidden lg:block cursor-pointer drop-shadow-md space-y-3 p-10 rounded-sm col-span-2 lg:col-span-2">
         <img
           src="https://s2.coinmarketcap.com/static/img/coins/64x64/1958.png"
           className="w-[32px]"
@@ -126,7 +126,7 @@ const Deposit = () => {
         }`}
       >
         <div className="flex justify-center gap-5 ">
-          <span className="flex gap-3 items-center w-full bg-[#2f3542] p-4">
+          <span className="flex gap-3 items-center w-full bg-[#130f40] p-4">
             <GiWallet className="text-2xl text-mainColor"></GiWallet>
             <span className="flex flex-col">
               <h1 className="text-secondColor font-medium text-base">
@@ -138,7 +138,7 @@ const Deposit = () => {
           </span>
         </div>
 
-        <div className="bg-[#2f3542] cursor-pointer drop-shadow-md space-y-3 p-5 rounded-sm col-span-2 lg:col-span-2">
+        <div className="bg-[#130f40] cursor-pointer drop-shadow-md space-y-3 p-5 rounded-sm col-span-2 lg:col-span-2">
           <div className="flex gap-3 items-center">
             {" "}
             <img
@@ -169,7 +169,7 @@ const Deposit = () => {
             </button>
           </span>
         </div>
-        <div className="bg-[#2f3542] cursor-pointer drop-shadow-md space-y-3 p-5 rounded-sm col-span-2 lg:col-span-2">
+        <div className="bg-[#130f40] cursor-pointer drop-shadow-md space-y-3 p-5 rounded-sm col-span-2 lg:col-span-2">
           <div className="flex gap-3 items-center">
             <img
               src="https://i.postimg.cc/9028nV6Q/binance-coin-cryptocurrency.png"
@@ -199,7 +199,7 @@ const Deposit = () => {
             </button>
           </span>
         </div>
-        <div className="bg-[#2f3542] cursor-pointer drop-shadow-md space-y-3 p-5 rounded-sm col-span-2 lg:col-span-2">
+        <div className="bg-[#130f40] cursor-pointer drop-shadow-md space-y-3 p-5 rounded-sm col-span-2 lg:col-span-2">
           <div className="flex gap-3 items-center">
             <img
               src="https://s2.coinmarketcap.com/static/img/coins/64x64/1958.png"
@@ -238,7 +238,6 @@ const Deposit = () => {
         <DepositFrom></DepositFrom>
       </div>
       <div className="lg:col-span-4 col-span-10 px-4 lg:py-0 py-5">
-        
         <h1 className="text-3xl py-4 font-bold">Latest Deposit</h1>
         <LatestDepoWithdraw></LatestDepoWithdraw>
       </div>

@@ -9,7 +9,9 @@ const Pricing = () => {
                 <div className="space-y-2 text-center">
                   <span className="text-6xl font-bold">$5</span>
                 </div>
-                <button className=" bg-mainColor border-none text-black font-bold py-2 rounded-sm w-full text-base mx-auto  drop-shadow-md">Basic</button>
+                <button className=" bg-mainColor border-none text-black font-bold py-2 rounded-sm w-full text-base mx-auto  drop-shadow-md">
+                  Basic
+                </button>
                 <ul className="space-y-3 text-secondColor">
                   <li className="flex items-start space-x-2">
                     <svg
@@ -26,7 +28,7 @@ const Pricing = () => {
                     </svg>
                     <span>Up to 3% daily prpfit</span>
                   </li>
-                  
+
                   <li className="flex items-start space-x-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -76,20 +78,21 @@ const Pricing = () => {
               </div>
             </div>
             <div className="flex w-full mb-8 sm:px-4 md:w-1/4 lg:w-1/4 lg:mb-0">
-              <div className="flex flex-grow flex-col p-6 space-y-6 rounded shadow sm:p-8 bg-mainColor text-gray-900">
-
+              <div className="flex flex-grow flex-col p-6 space-y-6 rounded shadow sm:p-8 bg-gray-900 ">
                 <div className="space-y-2 text-center  ">
-                 
                   <span className="text-6xl font-bold">$20</span>
                 </div>
-                <button className=" bg-[#111827] border-none text-mainColor font-bold py-2 rounded-sm w-full drop-shadow-md text-base mx-auto">Premium</button>
-                <ul className="flex-1 space-y-2">
+                <button className=" bg-mainColor border-none text-black font-bold py-2 rounded-sm w-full text-base mx-auto  drop-shadow-md">
+                  Premium
+                </button>
+
+                <ul className="flex-1 space-y-2 text-secondColor">
                   <li className="flex items-center space-x-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
                       fill="currentColor"
-                      className="flex-shrink-0 w-6 h-6"
+                      className="flex-shrink-0 w-6 h-6 text-mainColor"
                     >
                       <path
                         fillRule="evenodd"
@@ -99,13 +102,13 @@ const Pricing = () => {
                     </svg>
                     <span>Up to 4% daily prpfit</span>
                   </li>
-                
+
                   <li className="flex items-center space-x-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
                       fill="currentColor"
-                      className="flex-shrink-0 w-6 h-6"
+                      className="flex-shrink-0 w-6 h-6 text-mainColor"
                     >
                       <path
                         fillRule="evenodd"
@@ -120,7 +123,7 @@ const Pricing = () => {
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
                       fill="currentColor"
-                      className="flex-shrink-0 w-6 h-6"
+                      className="flex-shrink-0 w-6 h-6 text-mainColor"
                     >
                       <path
                         fillRule="evenodd"
@@ -135,7 +138,7 @@ const Pricing = () => {
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
                       fill="currentColor"
-                      className="flex-shrink-0 w-6 h-6"
+                      className="flex-shrink-0 w-6 h-6 text-mainColor"
                     >
                       <path
                         fillRule="evenodd"
@@ -153,7 +156,9 @@ const Pricing = () => {
                 <div className="space-y-2 text-center">
                   <span className="text-6xl font-bold">$10</span>
                 </div>
-                <button className=" bg-mainColor border-none text-black font-bold py-2 rounded-sm w-full text-base mx-auto  drop-shadow-md">Standard</button>
+                <button className=" bg-mainColor border-none text-black font-bold py-2 rounded-sm w-full text-base mx-auto  drop-shadow-md">
+                  Standard
+                </button>
                 <ul className="space-y-3 text-secondColor">
                   <li className="flex items-start space-x-2">
                     <svg
@@ -170,7 +175,7 @@ const Pricing = () => {
                     </svg>
                     <span>Up to 3.5% daily prpfit</span>
                   </li>
-                  
+
                   <li className="flex items-start space-x-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

@@ -7,10 +7,12 @@ import { sendEmailVerification, updateProfile } from "firebase/auth";
 import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import useAxios from "../Hooks/useAxios";
 const Registration = () => {
   const [isShow, setShow] = useState(false);
   const { registeration } = useAuth();
   const navigate = useNavigate();
+  const axios = useAxios();
   const handleRegistration = (e) => {
     e.preventDefault();
     const from = e.target;
@@ -18,17 +20,26 @@ const Registration = () => {
     const email = from.email.value;
     const number = from.number.value;
     const password = from.password.value;
-    const userDetails = {name,email,number,password}
-    console.log(userDetails);
+    const uniqeId = Math.random().toString(36).substring(2, 10);
+    const baseurl = "https://invotrust.com/referral/?ref=";
+    const refferLink = baseurl + uniqeId;
+    const userDetails = { name, email, number, password, refferLink };
+
     if (password.length < 6) {
       return toast.error("Password must be at least 6 characters long.");
     }
-    
+
     registeration(email, password)
       .then((res) => {
         updateProfile(res.user, {
           displayName: name,
-        });
+        })
+          .then(() => {
+            console.log("profile updated");
+          })
+          .catch((error) => {
+            console.log(error);
+          });
         sendEmailVerification(res.user).then(() => {
           swal(
             "Congratulations",
@@ -38,11 +49,16 @@ const Registration = () => {
               button: "Okay",
             }
           );
-          navigate("/Login");
+
+          axios
+            .post("/create-user", userDetails)
+            .then((res) => console.log(res.data));
+             navigate("/Login");
         });
       })
       .catch((err) => toast.error(`${err.message.slice(17).replace(")", "")}`));
   };
+
   return (
     <div>
       <section className="relative z-10 overflow-hidden bg-black text-white py-5 lg:py-[40px]">

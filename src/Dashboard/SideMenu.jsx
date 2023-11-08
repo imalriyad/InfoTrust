@@ -15,7 +15,10 @@ const SideMenu = () => {
         Dashboard
       </NavLink>
 
-      <NavLink to={'Market'} className="xl:text-xl lg:text-lg flex gap-5 items-center tracking-wide py-4">
+      <NavLink
+        to={"Market"}
+        className="xl:text-xl lg:text-lg flex gap-5 items-center tracking-wide py-4"
+      >
         <img
           src="https://i.postimg.cc/SNPgpS3n/diagram.png"
           className="w-[25px]"
@@ -23,7 +26,21 @@ const SideMenu = () => {
         />
         Market
       </NavLink>
-      <NavLink to={'Deposit'} className="xl:text-xl lg:text-lg flex gap-5 items-center tracking-wide py-4">
+      <NavLink
+        to={"Packages"}
+        className="xl:text-xl lg:text-lg flex gap-5 items-center tracking-wide py-4"
+      >
+        <img
+          src="https://i.postimg.cc/1tV09wq2/withdrawal.png"
+          className="w-[30px]"
+          alt=""
+        />
+        Packages
+      </NavLink>
+      <NavLink
+        to={"Deposit"}
+        className="xl:text-xl lg:text-lg flex gap-5 items-center tracking-wide py-4"
+      >
         <img
           src="https://i.postimg.cc/JzjQXbYL/deposit.png"
           className="w-[30px]"
@@ -32,7 +49,10 @@ const SideMenu = () => {
         Deposit
       </NavLink>
 
-      <NavLink to={'Withdraw'} className="xl:text-xl lg:text-lg flex gap-5 items-center tracking-wide py-4">
+      <NavLink
+        to={"Withdraw"}
+        className="xl:text-xl lg:text-lg flex gap-5 items-center tracking-wide py-4"
+      >
         <img
           src="https://i.postimg.cc/1tV09wq2/withdrawal.png"
           className="w-[30px]"
@@ -40,14 +60,15 @@ const SideMenu = () => {
         />
         Withdraw
       </NavLink>
-      <li className="xl:text-xl lg:text-lg flex gap-5 items-center tracking-wide py-4">
+
+      <NavLink to={'Settings'} className="xl:text-xl lg:text-lg flex gap-5 items-center tracking-wide py-4">
         <img
           src="https://i.postimg.cc/N004fd9N/settings.png"
           className="w-[25px]"
           alt=""
         />
         Settings
-      </li>
+      </NavLink>
     </div>
   );
 };

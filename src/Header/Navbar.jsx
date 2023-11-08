@@ -15,7 +15,7 @@ const Navbar = () => {
       .catch((err) => toast.error(`${err.message.slice(17).replace(")", "")}`));
   };
   const goRegistration = () => {
-    navigate("/Dashboard/Dashboard");
+    navigate("/Registration");
   };
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -35,7 +35,7 @@ const Navbar = () => {
           </span>
         </Link>
         <div className="flex md:order-2">
-          {user?.email ? (
+          {user?.email && user?.emailVerified ? (
             <button
               onClick={logOut}
               type="button"
@@ -106,11 +106,16 @@ const Navbar = () => {
                 Contact
               </li>
             </Link>
-            <Link to={"/Blog"}>
+            {
+             user?.email && user?.emailVerified ? <Link to={'/Dashboard/Dashboard'}><li className="block py-2 pl-3 pr-4 text-white hover:text-mainColor rounded  font-semibold ">
+             Dashboard
+           </li></Link>
+             : <Link to={"/Blog"}>
               <li className="block py-2 pl-3 pr-4 text-white hover:text-mainColor rounded  font-semibold ">
                 Blog
               </li>
             </Link>
+            }
           </ul>
         </div>
       </div>
