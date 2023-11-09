@@ -7,7 +7,7 @@ const PrivateRoute = ({ children }) => {
   if (isLoading) {
     return (
       <div className="bg-black w-full h-screen">
-        <div className="flex mx-auto max-w-screen-sm py-[40%] items-center justify-center space-x-2">
+        <div className="flex mx-auto max-w-screen-sm md:py-[20%] py-[40%] items-center justify-center space-x-2">
           <div className="w-20 h-20 border-8 border-dashed border-mainColor rounded-full animate-spin "></div>
         </div>
       </div>

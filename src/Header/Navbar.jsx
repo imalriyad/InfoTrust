@@ -15,11 +15,14 @@ const Navbar = () => {
       .catch((err) => toast.error(`${err.message.slice(17).replace(")", "")}`));
   };
   const goRegistration = () => {
-    navigate("/Registration");
+    navigate("/Login");
   };
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+
+  console.log(user);
 
   return (
     <nav className="bg-black border-gray-200 dark:bg-gray-900 px-4">

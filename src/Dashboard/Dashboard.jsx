@@ -7,6 +7,7 @@ import DashTittle from "../Components/Tittle/DashTittle";
 const Dashboard = () => {
   const [isOpen, setOpen] = useState(false);
   const { user } = useAuth();
+  
 
   return (
     <div className="bg-[#f1f2f6] ">

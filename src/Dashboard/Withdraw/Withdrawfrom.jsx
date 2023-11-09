@@ -1,6 +1,13 @@
 import { useState } from "react";
+import useAuth from "../../Hooks/useAuth";
+import toast from "react-hot-toast";
+import useAxios from "../../Hooks/useAxios";
+import swal from "sweetalert";
 const Withdrawfrom = () => {
-  const [selected, setSelected] = useState(null);
+  const { user } = useAuth();
+  const axios = useAxios();
+  const [selectedMethod, setSelectedMethod] = useState("");
+  const [selectedAmount, setSelectedAmount] = useState("");
   const handleWithdrawForm = (e) => {
     e.preventDefault();
     const from = e.target;
@@ -8,12 +15,21 @@ const Withdrawfrom = () => {
     const email = from.email.value;
     const number = from.number.value;
     const WithdrawAddress = from.address.value;
-    const withdrawalAmount = from.amount.value;
-    const requestType = 'Withdraw'
-    const withdrawalMethod = selected;
+    const status = "Pending";
+    const withdrawalMethod = selectedMethod;
+    const withdrawalAmount = parseInt(selectedAmount)
     const currentDate = new Date();
     const DateTime = currentDate.toLocaleString();
-    const withdrawalRequest = {
+
+    if (withdrawalAmount === "") {
+      toast.error("Please select a valid Deposit Amount");
+      return;
+    }
+    if (withdrawalMethod === "") {
+      toast.error("Please select a valid Deposit Method");
+      return;
+    }
+    const withdrawRequest = {
       name,
       email,
       number,
@@ -21,16 +37,29 @@ const Withdrawfrom = () => {
       WithdrawAddress,
       withdrawalMethod,
       DateTime,
-      requestType
+      status,
     };
-    console.log(withdrawalRequest);
+    axios.post("/create-withdraw", withdrawRequest).then((res) => {
+      if (res.data.insertedId) {
+        swal({
+          title: "Congrats!",
+          text: "Your Withdraw request is successful! It will be transferred to your withdrawal address in 15 to 30 minutes.",
+          icon: "success",
+          button: "Thank you!",
+        });
+      }
+    });
+    from.reset()
   };
-  const handleSelect = (e) => {
+  const handleSelectmethod = (e) => {
     const withdrawalMethod = e.target.value;
-    setSelected(withdrawalMethod);
+    setSelectedMethod(withdrawalMethod);
   };
 
-
+  const handleSelectAmount = (e) => {
+    const withdrawalAmount = e.target.value;
+    setSelectedAmount(withdrawalAmount);
+  };
 
   return (
     <div className="py-5">
@@ -45,6 +74,7 @@ const Withdrawfrom = () => {
           <input
             type="text"
             placeholder="Name"
+            defaultValue={user?.displayName}
             name="name"
             required
             className="border-stroke mt-2 text-black text-body-color focus:border-mainColor w-full rounded border py-3 px-[14px] md:text-sm text-xs outline-none "
@@ -56,6 +86,7 @@ const Withdrawfrom = () => {
           </span>
           <input
             type="email"
+            defaultValue={user?.email}
             placeholder="Email Address"
             name="email"
             required
@@ -91,28 +122,32 @@ const Withdrawfrom = () => {
           <span className="font-semibold text-secondColor md:text-base text-xs">
             Withdraw Amount
           </span>
-          <input
-            type="number"
-            placeholder="Withdraw Amount"
-            name="amount"
+          <select
+            onChange={handleSelectAmount}
+            value={selectedAmount}
             required
-            className="border-stroke mt-2 text-black text-body-color focus:border-mainColor w-full rounded border py-3 px-[14px] md:text-sm text-xs outline-none "
-          />
+            className="border-stroke mt-2 text-black text-body-color focus:border-mainColor w-full rounded border py-3 pl-2 md:text-sm text-xs outline-none cursor-pointer "
+          >
+            <option>Withdraw Amount</option>
+            <option value={5}>5</option>
+            <option value={10}>10</option>
+            <option value={20}>20</option>
+          </select>
         </div>
         <div className="mb-4 flex flex-col">
           <span className="font-semibold text-secondColor md:text-base text-xs">
             Withdraw Method
           </span>
+
           <select
-            onChange={handleSelect} value={selected}
+            onChange={handleSelectmethod}
+            value={selectedMethod}
             className="border-stroke mt-2 text-black text-body-color focus:border-mainColor w-full rounded border py-3 pl-2 md:text-sm text-xs outline-none cursor-pointer "
           >
-            <option disabled selected>
-              Withdraw Method
-            </option>
-            <option>USDT (TRC20)</option>
-            <option>BSC (BEP20)</option>
-            <option>TRX (TRC20)</option>
+            <option>Withdraw Method</option>
+            <option value={"USDT (TRC20)"}>USDT (TRC20)</option>
+            <option value={"BSC (BEP20)"}>BSC (BEP20)</option>
+            <option value={"TRX (TRC20)"}>TRX (TRC20)</option>
           </select>
         </div>
 

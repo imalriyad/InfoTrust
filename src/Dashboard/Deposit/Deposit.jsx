@@ -4,8 +4,10 @@ import { useOutletContext } from "react-router-dom";
 import toast from "react-hot-toast";
 import DepositFrom from "./DepositFrom";
 import LatestDepoWithdraw from "./LatestDepoWith";
+import useBalence from "../../Hooks/useBalence";
 const Deposit = () => {
   const isOpen = useOutletContext();
+  const  {totalBalance} = useBalence()
   const inputRef1 = useRef(null);
   const inputRef2 = useRef(null);
   const inputRef3 = useRef(null);
@@ -36,7 +38,7 @@ const Deposit = () => {
       <div className="bg-[#130f40] hidden lg:block cursor-pointer drop-shadow-md space-y-3 p-10 rounded-sm col-span-2 lg:col-span-2">
         <GiWallet className="text-4xl text-mainColor"></GiWallet>
         <h1 className="text-secondColor text-lg font-medium">Total Balance</h1>
-        <h1 className="font-semibold text-white text-3xl">$240.74</h1>
+        <h1 className="font-semibold text-white text-3xl">${totalBalance}</h1>
       </div>
 
       <div className="bg-[#130f40] hidden lg:block cursor-pointer drop-shadow-md space-y-3 p-10 rounded-sm col-span-2 lg:col-span-2">

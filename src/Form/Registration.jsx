@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import GoogleLogin from "./GoogleLogin";
 import { HiEye, HiEyeOff } from "react-icons/hi";
 import { useState } from "react";
 import useAuth from "../Hooks/useAuth";
@@ -8,6 +7,7 @@ import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import useAxios from "../Hooks/useAxios";
+import GoogleLogin from "./GoogleLogin";
 const Registration = () => {
   const [isShow, setShow] = useState(false);
   const { registeration } = useAuth();
@@ -50,10 +50,10 @@ const Registration = () => {
             }
           );
 
-          axios
-            .post("/create-user", userDetails)
-            .then((res) => console.log(res.data));
-             navigate("/Login");
+          axios.post("/create-user", userDetails).then(() => {
+            console.log('user created');
+          });
+          navigate("/Login");
         });
       })
       .catch((err) => toast.error(`${err.message.slice(17).replace(")", "")}`));
@@ -150,7 +150,7 @@ const Registration = () => {
                     </p>
                   </div>
                 </form>
-                <GoogleLogin></GoogleLogin>
+             <GoogleLogin></GoogleLogin>
                 <div>
                   <span className="absolute -right-10 top-[90px] z-[-1]">
                     <svg

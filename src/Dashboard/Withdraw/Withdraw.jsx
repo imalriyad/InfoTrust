@@ -2,16 +2,18 @@ import { GiWallet } from "react-icons/gi";
 import { useOutletContext } from "react-router-dom";
 import LatestDepoWithdraw from "../Deposit/LatestDepoWith";
 import Withdrawfrom from "./Withdrawfrom";
+import useBalence from "../../Hooks/useBalence";
 
 const Withdraw = () => {
   const isOpen = useOutletContext();
+  const  {totalBalance} = useBalence()
   return (
     <>
       {/* Large screen elements */}
       <div className="bg-[#130f40] hidden lg:block cursor-pointer drop-shadow-md space-y-3 p-10 rounded-sm col-span-8">
         <GiWallet className="text-4xl text-mainColor"></GiWallet>
         <h1 className="text-secondColor text-lg font-medium">Total Balance</h1>
-        <h1 className="font-semibold text-white text-3xl">$240.74</h1>
+        <h1 className="font-semibold text-white text-3xl">${totalBalance}</h1>
       </div>
 
       {/* For small screens (phones), place divs in a single row */}
@@ -29,7 +31,7 @@ const Withdraw = () => {
                 {" "}
                 Total Balance
               </h1>
-              <h1 className="font-semibold text-white text-xl">$240.74</h1>
+              <h1 className="font-semibold text-white text-xl">${totalBalance}</h1>
             </span>
           </span>
         </div>

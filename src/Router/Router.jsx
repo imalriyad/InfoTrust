@@ -18,6 +18,8 @@ import PrivateRoute from "../Private/PrivateRoute";
 import ErorrPage from "../Pages/ErorrPage";
 import PricingDash from "../Dashboard/PricingDash";
 import Settings from "../Dashboard/Settings";
+import DepositReq from "../Dashboard/Admin/DepositReq";
+import WithdrawReq from "../Dashboard/Admin/WithdrawReq";
 
 const router = createBrowserRouter([
   {
@@ -121,8 +123,26 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+
+      {
+        path: "DepositRequest",
+        element: (
+          <PrivateRoute>
+          <DepositReq></DepositReq>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "WithdrawRequest",
+        element: (
+          <PrivateRoute>
+            <WithdrawReq></WithdrawReq>
+          </PrivateRoute>
+        ),
+      },
     ],
   },
+  
 ]);
 
 export default router;
