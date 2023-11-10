@@ -12,7 +12,7 @@ const Login = () => {
   const { login, user } = useAuth();
   const navigate = useNavigate();
   const axios = useAxios();
-  console.log(user);
+
   const handleLogin = (e) => {
     e.preventDefault();
     const from = e.target;
@@ -36,6 +36,7 @@ const Login = () => {
         axios.post("/auth/access-token", { email: loggedInUser });
         toast.success("Logged in Successful", { id: toastId });
         navigate("/Dashboard/Dashboard");
+        console.log(user);
       })
       .catch((err) =>
         toast.error(`${err.message.slice(17).replace(")", "")}`, {

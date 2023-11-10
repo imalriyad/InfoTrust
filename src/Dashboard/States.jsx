@@ -8,13 +8,13 @@ import Chart from "./Chart";
 import { useRef } from "react";
 import toast from "react-hot-toast";
 import useUserInfo from "../Hooks/useUserInfo";
-import useBalence from "../Hooks/useBalence";
+
 const States = () => {
   const isOpen = useOutletContext();
   const inputRef = useRef(null);
   const inputRefLG = useRef(null);
   const userInfo = useUserInfo();
-  const {totalBalance,totalProfit,totalSpent,totalReferral} = useBalence()
+
 
 
   const handleRefferLinkLg = (event) => {
@@ -52,22 +52,22 @@ const States = () => {
       <div className="bg-[#130f40] hidden lg:block cursor-pointer drop-shadow-md space-y-3 p-10 rounded-sm col-span-2 lg:col-span-2">
         <GiWallet className="text-4xl text-mainColor"></GiWallet>
         <h1 className="text-secondColor text-lg font-medium">Total Balance</h1>
-        <h1 className="font-semibold text-white text-3xl">${totalBalance}</h1>
+        <h1 className="font-semibold text-white text-3xl">${userInfo?.totalBalance}</h1>
       </div>
       <div className="bg-[#130f40] hidden lg:block cursor-pointer drop-shadow-md p-10 space-y-3 rounded-sm col-span-2 lg:col-span-2">
         <FaMoneyBillTrendUp className="text-4xl text-mainColor"></FaMoneyBillTrendUp>
         <h1 className="text-secondColor text-lg font-medium">Total spent</h1>
-        <h1 className="font-semibold text-3xl text-white">${totalSpent}</h1>
+        <h1 className="font-semibold text-3xl text-white">${userInfo?.totalSpent}</h1>
       </div>
       <div className="bg-[#130f40] hidden lg:block cursor-pointer drop-shadow-md space-y-3 p-10 rounded-sm col-span-2 lg:col-span-2">
         <RiMoneyDollarBoxFill className="text-4xl text-mainColor"></RiMoneyDollarBoxFill>
         <h1 className="text-secondColor text-lg font-medium">Total Profit</h1>
-        <h1 className="font-semibold text-3xl text-white">${totalProfit}</h1>
+        <h1 className="font-semibold text-3xl text-white">${userInfo?.totalProfit}</h1>
       </div>
       <div className="bg-[#130f40] hidden lg:block cursor-pointer drop-shadow-md space-y-3 p-10 rounded-sm col-span-2 lg:col-span-2">
         <FaPeopleArrows className="text-4xl text-mainColor"></FaPeopleArrows>
         <h1 className="text-secondColor text-lg font-medium">Total Referral</h1>
-        <h1 className="font-semibold text-white text-3xl">{totalReferral}</h1>
+        <h1 className="font-semibold text-white text-3xl">{userInfo?.totalReferral}</h1>
       </div>
 
       {/* Reffer link for lg */}
@@ -112,7 +112,7 @@ const States = () => {
                 {" "}
                 Total Balance
               </h1>
-              <h1 className="font-semibold text-white text-lg">${totalBalance}</h1>
+              <h1 className="font-semibold text-white text-lg">${userInfo?.totalBalance}</h1>
             </span>
           </span>
           <span className="flex gap-3 items-center md:w-full w-1/2 bg-[#130f40] p-2">
@@ -121,7 +121,7 @@ const States = () => {
               <h1 className="text-secondColor font-medium text-xs">
                 Total Spent
               </h1>
-              <h1 className="font-semibold text-white text-lg">${totalSpent}</h1>
+              <h1 className="font-semibold text-white text-lg">${userInfo?.totalSpent}</h1>
             </span>
           </span>
         </div>
@@ -133,7 +133,7 @@ const States = () => {
                 {" "}
                 Total Profit
               </h1>
-              <h1 className="font-semibold text-white text-lg">${totalProfit}</h1>
+              <h1 className="font-semibold text-white text-lg">${userInfo?.totalProfit}</h1>
             </span>
           </span>
           <span className="flex gap-3 items-center md:w-full w-1/2 bg-[#130f40] p-2">
@@ -142,7 +142,7 @@ const States = () => {
               <h1 className="text-secondColor font-medium text-xs">
                 Total Reffer
               </h1>
-              <h1 className="font-semibold text-white text-lg">{totalReferral}</h1>
+              <h1 className="font-semibold text-white text-lg">{userInfo?.totalReferral}</h1>
             </span>
           </span>
         </div>
@@ -156,7 +156,7 @@ const States = () => {
             <input
               type="text"
               ref={inputRef}
-              defaultValue={"https://invotrust.com/referral/?ref=0s7mwx1y"}
+              defaultValue={userInfo?.refferLink}
               readOnly
               className="input input-bordered text-xs input-sm rounded-sm w-full max-w-xs"
             />

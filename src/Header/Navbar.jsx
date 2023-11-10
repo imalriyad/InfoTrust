@@ -21,9 +21,6 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-
-  console.log(user);
-
   return (
     <nav className="bg-black border-gray-200 dark:bg-gray-900 px-4">
       <div className="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto py-6">

@@ -3,13 +3,13 @@ import useAxios from "../../Hooks/useAxios";
 import swal from "sweetalert";
 import useAuth from "../../Hooks/useAuth";
 import toast from "react-hot-toast";
-import useBalence from "../../Hooks/useBalence";
+
 const DepositFrom = () => {
   const [selectedMethod, setSelected] = useState("");
   const [selectedAmount, setSelectedAmount] = useState("");
   const axios = useAxios();
   const { user } = useAuth();
-  const { totalBalance, setTotalBalance } = useBalence();
+
   const handleDepositeForm = (e) => {
     e.preventDefault();
     const from = e.target;
@@ -43,8 +43,7 @@ const DepositFrom = () => {
     };
 
     axios.post("/create-deposit", depositRequest).then((res) => {
-      if (res.data.insertedId) {
-        setTotalBalance(totalBalance + depositAmount)
+      if (res.data.insertedId) { 
         swal({
           title: "Congrats!",
           text: "Your deposit request is successful! In 15 to 30 minutes it will be credited to your balance",

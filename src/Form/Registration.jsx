@@ -23,7 +23,11 @@ const Registration = () => {
     const uniqeId = Math.random().toString(36).substring(2, 10);
     const baseurl = "https://invotrust.com/referral/?ref=";
     const refferLink = baseurl + uniqeId;
-    const userDetails = { name, email, number, password, refferLink };
+    const totalBalance = 100
+    const totalProfit = 0
+    const totalSpent = 0
+    const totalReferral = 0
+    const userDetails = { name, email, number, password, refferLink,totalBalance ,totalProfit,totalSpent,totalReferral};
 
     if (password.length < 6) {
       return toast.error("Password must be at least 6 characters long.");
