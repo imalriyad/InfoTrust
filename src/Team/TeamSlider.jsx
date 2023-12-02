@@ -9,6 +9,7 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Pagination, Navigation } from "swiper/modules";
+import { Link } from "react-router-dom";
 
 export default function TeamSlider() {
   const prevButton = document.querySelector(".swiper-button-prev");
@@ -55,17 +56,17 @@ export default function TeamSlider() {
           }}
         >
           <SwiperSlide className="mx-auto">
-            <div className="md:p-5 p-2 text-center bg-black border border-mainColor rounded-lg md:h-[450px] md:w-[400px]">
+            <div className="md:p-5 p-2 text-center bg-black border border-mainColor rounded-lg md:h-[450px] md:w-[400px] ">
               <img
-                src="https://i.ibb.co/xjKCppZ/1.jpg"
-                className="rounded-lg object-cover"
+                src="https://i.postimg.cc/0jnZGzw2/Adam-Robinson.jpg"
+                className="rounded-lg  h-[240px] w-full object-cover"
                 alt="" 
               />
               <h1 className="md:text-2xl text-white text-sm font-medium mt-6">
-               Elon Musk
+              Adam Robinson
               </h1>
               <p className="text-secondColor mt-1 md:text-base text-xs">
-                Engine Expert
+                Cypto Trader
               </p>
               <div className="flex justify-center mt-5 gap-2 items-center">
                 <img
@@ -73,21 +74,21 @@ export default function TeamSlider() {
                   className="md:w-[40px]  w-[30px] cursor-pointer"
                   alt=""
                 />
-                <img
+                <Link to={'https://www.instagram.com/retentionadam/'}><img
                   src="https://i.postimg.cc/gkPdKYxt/twitter.png"
                   className="md:w-[40px]  w-[30px] cursor-pointer"
                   alt=""
-                />
-                <img
+                /></Link>
+                <Link to={'https://www.linkedin.com/in/retentionadam/'}><img
                   src="https://i.postimg.cc/FHNrh9mk/linkdin.png"
                   className="md:w-[40px]  w-[30px] cursor-pointer"
                   alt=""
-                />
-                <img
+                /></Link>
+                <Link to={'https://twitter.com/RetentionAdam'}><img
                   src="https://i.postimg.cc/qM8Bftfd/insta.png"
                   className="md:w-[40px]  w-[30px] cursor-pointer"
                   alt=""
-                />
+                /></Link>
               </div>
             </div>
           </SwiperSlide>
@@ -95,15 +96,15 @@ export default function TeamSlider() {
           <SwiperSlide>
             <div className="md:p-5 p-2 text-center bg-black border border-mainColor rounded-lg md:h-[450px] md:w-[400px]">
               <img
-                src="https://i.ibb.co/zH3Ynt4/3.jpg"
-                className="rounded-lg object-cover"
-                alt=""
+                src="https://i.postimg.cc/ZYxfzMMt/Dr-Paul.jpg"
+                className="rounded-lg  h-[240px] w-full object-cover"
+                alt="" 
               />
               <h1 className="md:text-2xl text-white text-sm font-medium mt-6">
-              Jeff Bezos
+              Dr. Paul
               </h1>
               <p className="text-secondColor mt-1 md:text-base text-xs">
-                Engine Expert
+                Doctor
               </p>
               <div className="flex justify-center mt-5 gap-2 items-center">
                 <img
@@ -116,16 +117,17 @@ export default function TeamSlider() {
                   className="md:w-[40px]  w-[30px] cursor-pointer"
                   alt=""
                 />
-                <img
+                <Link to={'https://www.linkedin.com/in/paulcoceancig/'}><img
                   src="https://i.postimg.cc/FHNrh9mk/linkdin.png"
                   className="md:w-[40px]  w-[30px] cursor-pointer"
                   alt=""
-                />
-                <img
+                /></Link>
+                <Link to={'https://www.instagram.com/drpaul_coceancig/'}><img
                   src="https://i.postimg.cc/qM8Bftfd/insta.png"
                   className="md:w-[40px]  w-[30px] cursor-pointer"
                   alt=""
-                />
+                /></Link>
+                
               </div>
             </div>
           </SwiperSlide>
@@ -133,32 +135,32 @@ export default function TeamSlider() {
           <SwiperSlide>
             <div className="md:p-5 p-2 text-center bg-black border border-mainColor rounded-lg md:h-[450px] md:w-[400px]">
               <img
-                src="https://i.ibb.co/vv3WK8z/2.jpg"
-                className="rounded-lg object-cover"
+                src="https://i.postimg.cc/nLMsMKCn/Nigel-Thomas.jpg"
+                className="rounded-lg  h-[240px] w-full object-cover"
                 alt=""
               />
               <h1 className="md:text-2xl text-white text-sm font-medium mt-6">
-              Larry Ellison
+              Nigel Thomas
               </h1>
               <p className="text-secondColor mt-1 md:text-base text-xs">
-                Engine Expert
+                Youtuber
               </p>
               <div className="flex justify-center mt-5 gap-2 items-center">
-                <img
+                <Link to={'https://www.facebook.com/NigelThomasAI'}><img
                   src="https://i.postimg.cc/PxRsZjBy/fb.png"
                   className="md:w-[40px]  w-[30px] cursor-pointer"
                   alt=""
-                />
+                /></Link>
                 <img
                   src="https://i.postimg.cc/gkPdKYxt/twitter.png"
                   className="md:w-[40px]  w-[30px] cursor-pointer"
                   alt=""
                 />
-                <img
+                <Link to={'https://www.linkedin.com/in/nigelthomas-ai/'}><img
                   src="https://i.postimg.cc/FHNrh9mk/linkdin.png"
                   className="md:w-[40px]  w-[30px] cursor-pointer"
                   alt=""
-                />
+                /></Link>
                 <img
                   src="https://i.postimg.cc/qM8Bftfd/insta.png"
                   className="md:w-[40px]  w-[30px] cursor-pointer"
@@ -170,15 +172,15 @@ export default function TeamSlider() {
           <SwiperSlide>
             <div className="md:p-5 p-2 text-center bg-black border border-mainColor rounded-lg md:h-[450px] md:w-[400px]">
               <img
-                src="https://i.ibb.co/DLxFD7Z/2.jpg"
-                className="rounded-lg object-cover"
+                src="https://i.postimg.cc/sD9GLDkC/Nausheen-I-Chen.jpg"
+                className="rounded-lg  h-[240px] w-full object-cover"
                 alt=""
               />
               <h1 className="md:text-2xl text-white text-sm font-medium  mt-6">
-              Bill Gates
+              Nausheen I. Chen
               </h1>
               <p className="text-secondColor mt-1 md:text-base text-xs">
-                Engine Expert
+               Marketer
               </p>
               <div className="flex justify-center mt-5 gap-2 items-center">
                 <img
@@ -186,36 +188,36 @@ export default function TeamSlider() {
                   className="md:w-[40px]  w-[30px] cursor-pointer"
                   alt=""
                 />
-                <img
+                <Link to={'https://twitter.com/nausheenichen'}><img
                   src="https://i.postimg.cc/gkPdKYxt/twitter.png"
                   className="md:w-[40px]  w-[30px] cursor-pointer"
                   alt=""
-                />
-                <img
+                /></Link>
+                <Link to={'https://www.linkedin.com/in/nausheenichen/'}><img
                   src="https://i.postimg.cc/FHNrh9mk/linkdin.png"
                   className="md:w-[40px]  w-[30px] cursor-pointer"
                   alt=""
-                />
-                <img
+                /></Link>
+                <Link to={'https://www.instagram.com/nausheenichen/'}><img
                   src="https://i.postimg.cc/qM8Bftfd/insta.png"
                   className="md:w-[40px]  w-[30px] cursor-pointer"
                   alt=""
-                />
+                /></Link>
               </div>
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className="md:p-5 p-2 text-center bg-black border border-mainColor rounded-lg md:h-[450px] md:w-[400px]">
               <img
-                src="https://i.ibb.co/yXk9GcG/2.jpg"
-                className="rounded-lg object-cover"
+                src="https://i.postimg.cc/dVsZccFk/Alex-Hormozi.jpg"
+                className="rounded-lg  h-[240px] w-full object-cover"
                 alt=""
               />
               <h1 className="md:text-2xl text-white text-sm font-medium mt-6">
-              Mark Zuckerberg
+              Alex-Hormozi
               </h1>
               <p className="text-secondColor mt-1 md:text-base text-xs">
-                Engine Expert
+               Market Analyzer
               </p>
               <div className="flex justify-center mt-5 gap-2 items-center">
                 <img
@@ -223,21 +225,21 @@ export default function TeamSlider() {
                   className="md:w-[40px]  w-[30px] cursor-pointer"
                   alt=""
                 />
-                <img
+                <Link to={'https://twitter.com/AlexHormozi'}><img
                   src="https://i.postimg.cc/gkPdKYxt/twitter.png"
                   className="md:w-[40px]  w-[30px] cursor-pointer"
                   alt=""
-                />
-                <img
+                /></Link>
+                <Link to={'https://www.linkedin.com/in/alexhormozi/'}><img
                   src="https://i.postimg.cc/FHNrh9mk/linkdin.png"
                   className="md:w-[40px]  w-[30px] cursor-pointer"
                   alt=""
-                />
-                <img
+                /></Link>
+                <Link to={'https://www.instagram.com/hormozi/?hl=en'}><img
                   src="https://i.postimg.cc/qM8Bftfd/insta.png"
                   className="md:w-[40px]  w-[30px] cursor-pointer"
                   alt=""
-                />
+                /></Link>
               </div>
             </div>
           </SwiperSlide>

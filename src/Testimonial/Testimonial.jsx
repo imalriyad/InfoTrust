@@ -6,7 +6,9 @@ import { useEffect, useState } from "react";
 
 const Testimonial = () => {
   const [slidesPerView, setSlidesPerView] = useState(3);
-  const sliders = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const sliders = [1, 2, 3, 4, 5, 6,7];
+  const name = ['Richard','Shashi','Abraham ','Joseph','Matthew','Scott','Gregory']
+  const position = ['Supervisor','Manager','Marketer','Trader','Analyst','Dentist','Director']
   useEffect(() => {
     const updateSlides = () => {
       if (window.innerWidth < 768) {
@@ -42,6 +44,78 @@ const Testimonial = () => {
     className: "mySwiper",
   };
 
+  const review = (idx) => {
+    if (idx === 0) {
+      return "I am impressed with InvoTrust's performance. They have a simple and easy process and provide regular updates and reports"
+    }
+    else if(idx === 1){
+      return "I invested in InvoTrust and I am very happy with the results. They are professional, and transparent, and offer competitive rates and terms.";
+    }
+    else if(idx === 2){
+      return "InvoTrust is a great company to work with. They have a friendly and helpful team";
+    }
+    else if(idx === 3){
+      return "They have a high success rate and pay me on time and in full. InvoTrust is smart and safe";
+    }
+    else if(idx === 4){
+      return "I can't speak highly enough about InvoTrust! Their service is exceptional, and the entire process is refreshingly simple.";
+    }
+    else if(idx === 5){
+      return "InvoTrust has exceeded my expectations in every aspect. The entire process is so effortlessly that it has made my experience truly enjoyable. ";
+    }
+    else if(idx === 6){
+      return "Investing with InvoTrust has been a consistently excellent experience. Their professionalism and attention to detail set them apart.";
+    }
+  };
+
+  const namefunc = (idx) => {
+    if (idx === 0) {
+      return name[0]
+    }
+    else if(idx === 1){
+      return name[1]
+    }
+    else if(idx === 2){
+      return name[2]
+    }
+    else if(idx === 3){
+      return name[3]
+    }
+    else if(idx === 4){
+      return name[4]
+    }
+    else if(idx === 5){
+      return name[5]
+    }
+    else if(idx === 6){
+      return name[6]
+  }
+  }
+  const positionfunc = (idx) => {
+    if (idx === 0) {
+      return position[0]
+    }
+    else if(idx === 1){
+      return position[1]
+    }
+    else if(idx === 2){
+      return position[2]
+    }
+    else if(idx === 3){
+      return position[3]
+    }
+    else if(idx === 4){
+      return position[4]
+    }
+    else if(idx === 5){
+      return position[5]
+    }
+    else if(idx === 6){
+      return position[6]
+  }
+  }
+
+
   return (
     <div className="bg-black">
       <div className="md:space-y-7 px-4 py-10 space-y-4 text-white max-w-2xl mx-auto">
@@ -58,14 +132,14 @@ const Testimonial = () => {
 
       <div className="mx-auto max-w-screen-xl md:px-10 px-4 md:py-14 py-4">
         <Swiper {...settings}>
-          {sliders.map((item) => (
+          {sliders.map((item,idx) => (
             <SwiperSlide
               key={item}
               style={{
                 width: "320px",
               }}
             >
-              <div className="border-mainColor border lg:w-96 w-full rounded-md p-5">
+              <div className="border-mainColor border lg:w-96 h-[200px] w-full rounded-md p-5">
                 <div className="flex gap-4 items-center">
                   <div className="h-12 w-12 shrink-0 cursor-pointer overflow-hidden rounded-full ">
                     <img
@@ -78,15 +152,13 @@ const Testimonial = () => {
 
                   <span className="flex flex-col">
                     <h1 className="text-lg font-medium text-white">
-                      Jhone Doe
+                    {namefunc(idx)}
                     </h1>
-                    <p className="text-xs text-white">CEO ,NETFLIX</p>
+                    <p className="text-xs text-white">{positionfunc(idx)}</p>
                   </span>
                 </div>
-                <p className="text-secondColor italic font-medium text-sm py-5">
-                “ This is a section of some simple filler text, also known as
-                  placeholder text. It shares some characteristics of a real
-                  written text ”
+                <p className="text-secondColor italic font-normal md:text-sm text-xs py-5">
+                  {review(idx)}
                 </p>
                 <div className="rating rating-sm">
                   <input

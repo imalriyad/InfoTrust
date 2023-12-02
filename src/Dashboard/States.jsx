@@ -15,8 +15,6 @@ const States = () => {
   const inputRefLG = useRef(null);
   const userInfo = useUserInfo();
 
-
-
   const handleRefferLinkLg = (event) => {
     if (inputRefLG.current) {
       inputRefLG.current.select();
@@ -45,29 +43,36 @@ const States = () => {
     }, 2000);
   };
 
-
   return (
     <>
       {/* For large screens, use the original layout */}
       <div className="bg-[#130f40] hidden lg:block cursor-pointer drop-shadow-md space-y-3 p-10 rounded-sm col-span-2 lg:col-span-2">
         <GiWallet className="text-4xl text-mainColor"></GiWallet>
         <h1 className="text-secondColor text-lg font-medium">Total Balance</h1>
-        <h1 className="font-semibold text-white text-3xl">${userInfo?.totalBalance}</h1>
+        <h1 className="font-semibold text-white text-3xl">
+          ${userInfo?.totalBalance?.toFixed(2)}
+        </h1>
       </div>
       <div className="bg-[#130f40] hidden lg:block cursor-pointer drop-shadow-md p-10 space-y-3 rounded-sm col-span-2 lg:col-span-2">
         <FaMoneyBillTrendUp className="text-4xl text-mainColor"></FaMoneyBillTrendUp>
         <h1 className="text-secondColor text-lg font-medium">Total spent</h1>
-        <h1 className="font-semibold text-3xl text-white">${userInfo?.totalSpent}</h1>
+        <h1 className="font-semibold text-3xl text-white">
+          ${userInfo?.totalSpent?.toFixed(2)}
+        </h1>
       </div>
       <div className="bg-[#130f40] hidden lg:block cursor-pointer drop-shadow-md space-y-3 p-10 rounded-sm col-span-2 lg:col-span-2">
         <RiMoneyDollarBoxFill className="text-4xl text-mainColor"></RiMoneyDollarBoxFill>
         <h1 className="text-secondColor text-lg font-medium">Total Profit</h1>
-        <h1 className="font-semibold text-3xl text-white">${userInfo?.totalProfit}</h1>
+        <h1 className="font-semibold text-3xl text-white">
+          ${userInfo?.totalProfit?.toFixed(2)}
+        </h1>
       </div>
       <div className="bg-[#130f40] hidden lg:block cursor-pointer drop-shadow-md space-y-3 p-10 rounded-sm col-span-2 lg:col-span-2">
         <FaPeopleArrows className="text-4xl text-mainColor"></FaPeopleArrows>
         <h1 className="text-secondColor text-lg font-medium">Total Referral</h1>
-        <h1 className="font-semibold text-white text-3xl">{userInfo?.totalReferral}</h1>
+        <h1 className="font-semibold text-white text-3xl">
+          {userInfo?.totalReferral}
+        </h1>
       </div>
 
       {/* Reffer link for lg */}
@@ -112,7 +117,9 @@ const States = () => {
                 {" "}
                 Total Balance
               </h1>
-              <h1 className="font-semibold text-white text-lg">${userInfo?.totalBalance}</h1>
+              <h1 className="font-semibold text-white text-lg">
+                ${userInfo?.totalBalance?.toFixed(2)}
+              </h1>
             </span>
           </span>
           <span className="flex gap-3 items-center md:w-full w-1/2 bg-[#130f40] p-2">
@@ -121,7 +128,9 @@ const States = () => {
               <h1 className="text-secondColor font-medium text-xs">
                 Total Spent
               </h1>
-              <h1 className="font-semibold text-white text-lg">${userInfo?.totalSpent}</h1>
+              <h1 className="font-semibold text-white text-lg">
+                ${userInfo?.totalSpent?.toFixed(2)}
+              </h1>
             </span>
           </span>
         </div>
@@ -133,7 +142,9 @@ const States = () => {
                 {" "}
                 Total Profit
               </h1>
-              <h1 className="font-semibold text-white text-lg">${userInfo?.totalProfit}</h1>
+              <h1 className="font-semibold text-white text-lg">
+                ${userInfo?.totalProfit?.toFixed(2)}
+              </h1>
             </span>
           </span>
           <span className="flex gap-3 items-center md:w-full w-1/2 bg-[#130f40] p-2">
@@ -142,7 +153,9 @@ const States = () => {
               <h1 className="text-secondColor font-medium text-xs">
                 Total Reffer
               </h1>
-              <h1 className="font-semibold text-white text-lg">{userInfo?.totalReferral}</h1>
+              <h1 className="font-semibold text-white text-lg">
+                {userInfo?.totalReferral}
+              </h1>
             </span>
           </span>
         </div>

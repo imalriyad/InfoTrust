@@ -4,7 +4,6 @@ import LatestDepoWithdraw from "../Deposit/LatestDepoWith";
 import Withdrawfrom from "./Withdrawfrom";
 import useUserInfo from "../../Hooks/useUserInfo";
 
-
 const Withdraw = () => {
   const isOpen = useOutletContext();
   const userInfo = useUserInfo();
@@ -14,7 +13,9 @@ const Withdraw = () => {
       <div className="bg-[#130f40] hidden lg:block cursor-pointer drop-shadow-md space-y-3 p-10 rounded-sm col-span-8">
         <GiWallet className="text-4xl text-mainColor"></GiWallet>
         <h1 className="text-secondColor text-lg font-medium">Total Balance</h1>
-        <h1 className="font-semibold text-white text-3xl">${userInfo?.totalBalance}</h1>
+        <h1 className="font-semibold text-white text-3xl">
+          ${userInfo?.totalBalance?.toFixed(2)}
+        </h1>
       </div>
 
       {/* For small screens (phones), place divs in a single row */}
@@ -32,7 +33,9 @@ const Withdraw = () => {
                 {" "}
                 Total Balance
               </h1>
-              <h1 className="font-semibold text-white text-xl">${userInfo?.totalBalance}</h1>
+              <h1 className="font-semibold text-white text-xl">
+                ${userInfo?.totalBalance?.toFixed(2)}
+              </h1>
             </span>
           </span>
         </div>

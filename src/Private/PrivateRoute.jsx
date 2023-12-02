@@ -4,6 +4,7 @@ import useAuth from "../Hooks/useAuth";
 /* eslint-disable react/prop-types */
 const PrivateRoute = ({ children }) => {
   const { isLoading, user } = useAuth();
+
   if (isLoading) {
     return (
       <div className="bg-black w-full h-screen">

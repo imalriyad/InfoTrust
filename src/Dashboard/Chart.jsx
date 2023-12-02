@@ -9,18 +9,20 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-
-const data = [
-  {
-    name: "Statistics",
-    totalBalance: 240.74,
-    totalSpend: 130.4,
-    totalRefer: 25,
-    profit: 175.4,
-  },
-];
+import useUserInfo from "../Hooks/useUserInfo";
 
 const Chart = () => {
+  const userInfo = useUserInfo();
+  const data = [
+    {
+      name: "Statistics",
+      totalBalance: userInfo?.totalBalance?.toFixed(2),
+      totalProfit: userInfo?.totalProfit?.toFixed(2),
+      totalSpent: userInfo?.totalSpent?.toFixed(2),
+      totalReferral: userInfo?.totalReferral,
+    },
+  ];
+
   const [isLGScreen, setIsLGScreen] = useState(window.innerWidth > 1024);
 
   useEffect(() => {
@@ -50,25 +52,25 @@ const Chart = () => {
             dataKey="totalBalance"
             fill="#2ecc71"
             name="Total Balance"
-          barSize={isLGScreen ? 60 :''} // Specify the bar width for LG and non-LG screens
+            barSize={isLGScreen ? 60 : ""} // Specify the bar width for LG and non-LG screens
           />
           <Bar
             dataKey="totalSpend"
             fill="#686de0"
             name="Total Spend"
-            barSize={isLGScreen ? 60 : ''} // Specify the bar width for LG and non-LG screens
+            barSize={isLGScreen ? 60 : ""} // Specify the bar width for LG and non-LG screens
           />
           <Bar
             dataKey="totalRefer"
             fill="#eb4d4b"
             name="Total Refer"
-            barSize={isLGScreen ? 60 : ''} // Specify the bar width for LG and non-LG screens
+            barSize={isLGScreen ? 60 : ""} // Specify the bar width for LG and non-LG screens
           />
           <Bar
             dataKey="profit"
             fill="#f9ca24"
             name="Total Profit"
-            barSize={isLGScreen ? 60 : ''} // Specify the bar width for LG and non-LG screens
+            barSize={isLGScreen ? 60 : ""} // Specify the bar width for LG and non-LG screens
           />
         </BarChart>
       </ResponsiveContainer>

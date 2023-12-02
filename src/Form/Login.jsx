@@ -1,17 +1,15 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useState } from "react";
-import GoogleLogin from "./GoogleLogin";
 import { HiEye, HiEyeOff } from "react-icons/hi";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 import swal from "sweetalert";
 import toast from "react-hot-toast";
-import useAxios from "../Hooks/useAxios";
+
 const Login = () => {
   const [isShow, setShow] = useState(false);
   const { login, user } = useAuth();
   const navigate = useNavigate();
-  const axios = useAxios();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -30,10 +28,8 @@ const Login = () => {
       );
     }
     const toastId = toast.loading("logging....");
-    const loggedInUser =  email;
     login(email, password)
       .then(() => {
-        axios.post("/auth/access-token", { email: loggedInUser });
         toast.success("Logged in Successful", { id: toastId });
         navigate("/Dashboard/Dashboard");
         console.log(user);
@@ -45,7 +41,6 @@ const Login = () => {
       );
   };
 
- 
   return (
     <div>
       <section className="relative z-10 overflow-hidden bg-black text-white py-5 lg:py-[40px]">
@@ -85,7 +80,6 @@ const Login = () => {
                       placeholder="Your Password"
                       name="password"
                       required
-                    
                       className="border-stroke mt-2 text-black text-body-color focus:border-mainColor w-full rounded border py-3 px-[14px] text-sm outline-none "
                     />
                     <div
@@ -124,7 +118,7 @@ const Login = () => {
                     </p>
                   </div>
                 </form>
-                <GoogleLogin></GoogleLogin>
+
                 <div>
                   <span className="absolute -right-10 top-[90px] z-[-1]">
                     <svg

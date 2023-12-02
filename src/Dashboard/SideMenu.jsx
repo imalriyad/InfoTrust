@@ -9,7 +9,7 @@ const SideMenu = () => {
     <div className="text-white sidemenu space-y-2 lg:px-10 flex flex-col pt-6 drop-shadow-xl">
       <NavLink
         to={"Dashboard"}
-        className="xl:text-xl lg:text-lg flex gap-5 items-center tracking-wide py-4"
+        className="xl:text-xl lg:text-lg  flex gap-5 items-center tracking-wide py-4"
       >
         <img
           src="https://i.postimg.cc/dDcD8TD7/dashboard.png"

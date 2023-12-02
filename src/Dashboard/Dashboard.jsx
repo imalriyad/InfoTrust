@@ -7,22 +7,19 @@ import DashTittle from "../Components/Tittle/DashTittle";
 const Dashboard = () => {
   const [isOpen, setOpen] = useState(false);
   const { user } = useAuth();
-  
 
   return (
     <div className="bg-[#f1f2f6] ">
       <div className="grid grid-cols-10 gap-5 lg:mr-10">
         {/* Dashboard sidemenu */}
-        <div className="bg-[#130f40] hidden lg:block h-screen row-span-6 col-span-2">
+        <div className="bg-[#130f40] hidden lg:block h-full row-span-6 col-span-2">
           <Link to={"/"} className="flex items-center justify-center py-6">
             <img
-              src="https://i.postimg.cc/26H5JtYk/tradex-Cta-logo.png"
-              className="h-10 mr-3"
+              src="https://i.postimg.cc/rsDP8skz/Invo-Trust-03.png"
+              className="h-8 mr-3 object-cover"
               alt="InvoTrust logo"
             />
-            <span className="self-center text-white xl:text-3xl lg:text-xl font-semibold whitespace-nowrap ">
-              InvoTrust
-            </span>
+         
           </Link>
 
           <SideMenu></SideMenu>
@@ -40,13 +37,11 @@ const Dashboard = () => {
             <span className="flex items-center justify-between px-2 ">
               <Link to={"/"} className="flex items-center  ">
                 <img
-                  src="https://i.postimg.cc/26H5JtYk/tradex-Cta-logo.png"
+                  src="https://i.postimg.cc/rsDP8skz/Invo-Trust-03.png"
                   className="h-8 mr-3"
                   alt="InvoTrust logo"
                 />
-                <span className="self-center text-white xl:text-3xl lg:text-xl text-lg font-semibold whitespace-nowrap ">
-                  InvoTrust
-                </span>
+              
               </Link>
               <span onClick={() => setOpen(!isOpen)} className="cursor-pointer">
                 {isOpen ? (

@@ -32,7 +32,7 @@ const WithdrawReq = () => {
                 icon: "success",
               });
 
-              axios.get(`/get-user?emai=${userMail}`).then((res) => {
+              axios.get(`/get-user?email=${userMail}`).then((res) => {
                 const userId = res?.data._id;
                 const updatedTotalBalance =
                   res.data?.totalBalance - withdrawalAmount;

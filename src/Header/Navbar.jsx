@@ -26,13 +26,11 @@ const Navbar = () => {
       <div className="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto py-6">
         <Link to={"/"} className="flex items-center">
           <img
-            src="https://i.postimg.cc/26H5JtYk/tradex-Cta-logo.png"
-            className="h-8 mr-3"
+            src="https://i.postimg.cc/rsDP8skz/Invo-Trust-03.png"
+            className="h-9 mr-3"
             alt="InvoTrust logo"
           />
-          <span className="self-center text-white md:text-2xl font-semibold whitespace-nowrap ">
-            InvoTrust
-          </span>
+        
         </Link>
         <div className="flex md:order-2">
           {user?.email && user?.emailVerified ? (
@@ -106,16 +104,19 @@ const Navbar = () => {
                 Contact
               </li>
             </Link>
-            {
-             user?.email && user?.emailVerified ? <Link to={'/Dashboard/Dashboard'}><li className="block py-2 pl-3 pr-4 text-white hover:text-mainColor rounded  font-semibold ">
-             Dashboard
-           </li></Link>
-             : <Link to={"/Blog"}>
-              <li className="block py-2 pl-3 pr-4 text-white hover:text-mainColor rounded  font-semibold ">
-                Blog
-              </li>
-            </Link>
-            }
+            {user?.email && user?.emailVerified ? (
+              <Link to={"/Dashboard/Dashboard"}>
+                <li className="block py-2 pl-3 pr-4 text-white hover:text-mainColor rounded  font-semibold ">
+                  Dashboard
+                </li>
+              </Link>
+            ) : (
+              <Link to={"/Blog"}>
+                <li className="block py-2 pl-3 pr-4 text-white hover:text-mainColor rounded  font-semibold ">
+                  Blog
+                </li>
+              </Link>
+            )}
           </ul>
         </div>
       </div>

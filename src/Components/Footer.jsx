@@ -9,15 +9,14 @@ const Footer = () => {
         <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
           <div className="lg:w-1/3">
             <p className="flex justify-center space-x-3 lg:justify-start">
-              <div className="flex  items-center justify-center w-12 h-12 rounded-full ">
+              <div className="flex  items-center justify-center">
                 <img
-                  src="https://i.postimg.cc/26H5JtYk/tradex-Cta-logo.png"
+                  src="https://i.postimg.cc/rsDP8skz/Invo-Trust-03.png"
                   alt=""
+                  className="h-9 object-fill"
                 />
               </div>
-              <span className="self-center text-2xl font-semibold">
-                InvoTrust
-              </span>
+            
             </p>
             <p className="py-3 text-sm md:w-2/3 lg:mx-0 lg:text-left text-center md:mx-auto text-secondColor">
               InvoTrust: Where Your Financial Future Finds Unwavering Confidence
@@ -44,7 +43,7 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <Link to={'About'} rel="noopener noreferrer" href="#">
+                  <Link to={"About"} rel="noopener noreferrer" href="#">
                     FAQ
                   </Link>
                 </li>

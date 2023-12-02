@@ -42,12 +42,19 @@ const AuthProvider = ({ children }) => {
   };
   useEffect(() => {
     const unsubScribe = onAuthStateChanged(auth, (currentUser) => {
-      const loggedInUser = currentUser?.email || user?.email 
+      const loggedInUser = currentUser?.email || user?.email;
       setUser(currentUser);
-      setLoading(false);
+      if (currentUser) {
+        axios.post("/auth/access-token", { email: loggedInUser }).then(() => {
+          console.log("token added");
+          setLoading(false);
+        });
+      }
       const userEmail = { email: loggedInUser?.email };
       if (!currentUser) {
-        axios.post("/logout", userEmail).then((res) => console.log(res.data));
+        axios.post("/logout", userEmail).then((res) => {
+          console.log(res.data);
+        });
       }
     });
     return () => unsubScribe();

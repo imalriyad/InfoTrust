@@ -7,7 +7,7 @@ const GoogleLogin = () => {
   const navigate = useNavigate();
   const axios = useAxios();
   const handleGoogleLogin = () => {
-    const totalBalance = 100;
+    const totalBalance = 5;
     const totalProfit = 0;
     const totalSpent = 0;
     const totalReferral = 0;

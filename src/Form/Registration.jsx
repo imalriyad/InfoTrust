@@ -7,7 +7,7 @@ import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import useAxios from "../Hooks/useAxios";
-import GoogleLogin from "./GoogleLogin";
+
 const Registration = () => {
   const [isShow, setShow] = useState(false);
   const { registeration } = useAuth();
@@ -23,7 +23,7 @@ const Registration = () => {
     const uniqeId = Math.random().toString(36).substring(2, 10);
     const baseurl = "https://invotrust.com/referral/?ref=";
     const refferLink = baseurl + uniqeId;
-    const totalBalance = 100
+    const totalBalance = 5
     const totalProfit = 0
     const totalSpent = 0
     const totalReferral = 0
@@ -154,7 +154,7 @@ const Registration = () => {
                     </p>
                   </div>
                 </form>
-             <GoogleLogin></GoogleLogin>
+            
                 <div>
                   <span className="absolute -right-10 top-[90px] z-[-1]">
                     <svg
