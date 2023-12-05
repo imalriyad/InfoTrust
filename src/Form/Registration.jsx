@@ -6,13 +6,13 @@ import { sendEmailVerification, updateProfile } from "firebase/auth";
 import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import useAxios from "../Hooks/useAxios";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
 
 const Registration = () => {
   const [isShow, setShow] = useState(false);
   const { registeration } = useAuth();
   const navigate = useNavigate();
-  const axios = useAxios();
+  const axiosPublic = useAxiosPublic();
   const handleRegistration = (e) => {
     e.preventDefault();
     const from = e.target;
@@ -20,14 +20,9 @@ const Registration = () => {
     const email = from.email.value;
     const number = from.number.value;
     const password = from.password.value;
-    const uniqeId = Math.random().toString(36).substring(2, 10);
-    const baseurl = "https://invotrust.com/referral/?ref=";
-    const refferLink = baseurl + uniqeId;
-    const totalBalance = 5
-    const totalProfit = 0
-    const totalSpent = 0
-    const totalReferral = 0
-    const userDetails = { name, email, number, password, refferLink,totalBalance ,totalProfit,totalSpent,totalReferral};
+    const inputRefferCode = from.inputRefferCode.value;
+
+    const userDetails = { name, email, number, password };
 
     if (password.length < 6) {
       return toast.error("Password must be at least 6 characters long.");
@@ -44,7 +39,7 @@ const Registration = () => {
           .catch((error) => {
             console.log(error);
           });
-          console.log(res.user)
+        console.log(res.user);
         sendEmailVerification(res.user).then(() => {
           swal(
             "Congratulations",
@@ -55,9 +50,11 @@ const Registration = () => {
             }
           );
 
-          axios.post("/create-user", userDetails).then(() => {
-            console.log('user created');
-          });
+          axiosPublic
+            .post(`/signup/${inputRefferCode}`, userDetails)
+            .then(() => {
+              console.log("user created");
+            });
           navigate("/Login");
         });
       })
@@ -137,6 +134,19 @@ const Registration = () => {
                     </div>
                   </div>
 
+                  <div className="mb-6 ">
+                    <span className="font-semibold text-secondColor">
+                      Reffer Code
+                    </span>
+                    <input
+                      type="text"
+                      placeholder="Reffer Code"
+                      name="inputRefferCode"
+                      required
+                      className="border-stroke mt-2 text-black text-body-color focus:border-mainColor w-full rounded border py-3 px-[14px] text-sm outline-none "
+                    />
+                  </div>
+
                   <div>
                     <button
                       type="submit"
@@ -155,7 +165,7 @@ const Registration = () => {
                     </p>
                   </div>
                 </form>
-            
+
                 <div>
                   <span className="absolute -right-10 top-[90px] z-[-1]">
                     <svg

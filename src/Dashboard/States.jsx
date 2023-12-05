@@ -14,12 +14,12 @@ const States = () => {
   const inputRef = useRef(null);
   const inputRefLG = useRef(null);
   const userInfo = useUserInfo();
-
-  const handleRefferLinkLg = (event) => {
+  console.log(userInfo);
+  const handleRefferCodeLg = (event) => {
     if (inputRefLG.current) {
       inputRefLG.current.select();
       document.execCommand("copy");
-      toast.success("Referral Link Copied!");
+      toast.success("Referral Code Copied!");
     }
 
     const button = event.target;
@@ -29,11 +29,11 @@ const States = () => {
     }, 2000);
   };
 
-  const handleRefferLinkSm = (event) => {
+  const handleRefferCodeSm = (event) => {
     if (inputRef.current) {
       inputRef.current.select();
       document.execCommand("copy");
-      toast.success("Referral Link Copied!");
+      toast.success("Referral Code Copied!");
     }
 
     const button = event.target;
@@ -78,19 +78,19 @@ const States = () => {
       {/* Reffer link for lg */}
       <div className="bg-[#130f40] lg:block hidden cursor-pointer drop-shadow-md space-y-3 p-6 rounded-sm col-span-4">
         <h1 className="text-secondColor flex gap-2 items-center text-base font-medium">
-          <HiLink className=" text-2xl text-mainColor"></HiLink> Reffer Link
+          <HiLink className=" text-2xl text-mainColor"></HiLink> Reffer Code
         </h1>
 
         <span className="flex">
           <input
             type="text"
             ref={inputRefLG}
-            defaultValue={userInfo?.refferLink}
+            defaultValue={userInfo?.refferCode}
             readOnly
             className="input input-bordered text-xs input-sm rounded-sm w-full max-w-xs"
           />
           <button
-            onClick={handleRefferLinkLg}
+            onClick={handleRefferCodeLg}
             className="btn copylg btn-success btn-sm normal-case rounded-sm text-xs"
           >
             Copy
@@ -162,19 +162,19 @@ const States = () => {
 
         <div className="bg-[#130f40] cursor-pointer drop-shadow-md space-y-3 p-4 rounded-sm col-span-2 lg:col-span-2">
           <h1 className="text-secondColor flex gap-2 items-center text-base font-medium">
-            <HiLink className=" text-2xl text-mainColor"></HiLink> Reffer Link
+            <HiLink className=" text-2xl text-mainColor"></HiLink> Reffer Code
           </h1>
 
           <span className="flex">
             <input
               type="text"
               ref={inputRef}
-              defaultValue={userInfo?.refferLink}
+              defaultValue={userInfo?.refferCode}
               readOnly
               className="input input-bordered text-xs input-sm rounded-sm w-full max-w-xs"
             />
             <button
-              onClick={handleRefferLinkSm}
+              onClick={handleRefferCodeSm}
               className="btn btn-success btn-sm normal-case rounded-sm text-xs"
             >
               Copy
