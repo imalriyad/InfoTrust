@@ -40,3 +40,17 @@
   font-size: 16px;
   padding: 0 10px;
 }
+
+
+.custom-file-input {
+  position: relative;
+  display: inline-block;
+}
+
+.file-input {
+  font-size: 10px;
+  position: absolute;
+  left: 0;
+  top: 0;
+ 
+}

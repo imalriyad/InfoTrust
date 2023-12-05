@@ -1,5 +1,6 @@
 import { Navigate } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
+import '../Components/Loader.css'
 
 /* eslint-disable react/prop-types */
 const PrivateRoute = ({ children }) => {
@@ -7,9 +8,9 @@ const PrivateRoute = ({ children }) => {
 
   if (isLoading) {
     return (
-      <div className="bg-black w-full h-screen">
+      <div className="bg-white w-full h-screen">
         <div className="flex mx-auto max-w-screen-sm md:py-[20%] py-[40%] items-center justify-center space-x-2">
-          <div className="w-20 h-20 border-8 border-dashed border-mainColor rounded-full animate-spin "></div>
+          <div className="loader"></div>
         </div>
       </div>
     );

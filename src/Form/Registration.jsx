@@ -44,6 +44,7 @@ const Registration = () => {
           .catch((error) => {
             console.log(error);
           });
+          console.log(res.user)
         sendEmailVerification(res.user).then(() => {
           swal(
             "Congratulations",

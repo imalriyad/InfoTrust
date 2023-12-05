@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useState } from "react";
+import { useState  } from "react";
 import { HiEye, HiEyeOff } from "react-icons/hi";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
@@ -30,7 +30,7 @@ const Login = () => {
     const toastId = toast.loading("logging....");
     login(email, password)
       .then(() => {
-        toast.success("Logged in Successful", { id: toastId });
+        toast.success("Logged in Successful 🎉", { id: toastId });
         navigate("/Dashboard/Dashboard");
         console.log(user);
       })

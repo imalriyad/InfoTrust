@@ -93,7 +93,7 @@ export default function TeamSlider() {
             </div>
           </SwiperSlide>
 
-          <SwiperSlide>
+          {/* <SwiperSlide>
             <div className="md:p-5 p-2 text-center bg-black border border-mainColor rounded-lg md:h-[450px] md:w-[400px]">
               <img
                 src="https://i.postimg.cc/ZYxfzMMt/Dr-Paul.jpg"
@@ -130,7 +130,7 @@ export default function TeamSlider() {
                 
               </div>
             </div>
-          </SwiperSlide>
+          </SwiperSlide> */}
 
           <SwiperSlide>
             <div className="md:p-5 p-2 text-center bg-black border border-mainColor rounded-lg md:h-[450px] md:w-[400px]">

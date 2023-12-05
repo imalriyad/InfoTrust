@@ -17,9 +17,9 @@ import Deposit from "../Dashboard/Deposit/Deposit";
 import PrivateRoute from "../Private/PrivateRoute";
 import ErorrPage from "../Pages/ErorrPage";
 import PricingDash from "../Dashboard/PricingDash";
-import Settings from "../Dashboard/Settings";
 import DepositReq from "../Dashboard/Admin/DepositReq";
 import WithdrawReq from "../Dashboard/Admin/WithdrawReq";
+import Profile from "../Dashboard/UpdateProfile/Profile";
 
 const router = createBrowserRouter([
   {
@@ -115,20 +115,12 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      {
-        path: "Settings",
-        element: (
-          <PrivateRoute>
-            <Settings></Settings>
-          </PrivateRoute>
-        ),
-      },
 
       {
         path: "DepositRequest",
         element: (
           <PrivateRoute>
-          <DepositReq></DepositReq>
+            <DepositReq></DepositReq>
           </PrivateRoute>
         ),
       },
@@ -140,9 +132,16 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {
+        path: "user-profile",
+        element: (
+          <PrivateRoute>
+            <Profile></Profile>
+          </PrivateRoute>
+        ),
+      },
     ],
   },
-  
 ]);
 
 export default router;

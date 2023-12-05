@@ -16,7 +16,7 @@ const useAxios = () => {
         return res;
       },
       (err) => {
-        if (err.response.status === 401 || err.response.status === 403) {
+        if (err?.response?.status === 401 || err?.response?.status === 403) {
           signOut(auth)
             .then(() => {
               <Navigate key={"/Login"}></Navigate>;
