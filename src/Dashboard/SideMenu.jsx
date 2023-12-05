@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, useOutletContext } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 import toast from "react-hot-toast";
 const SideMenu = () => {
   const { user ,logout } = useAuth();
   const adminMail = import.meta.env.VITE_ADMIN_MAIL;
-
+  const setOpen = useOutletContext()
   const navigate = useNavigate();
   const logOut = () => {
     logout()
@@ -130,7 +130,7 @@ const SideMenu = () => {
         >
           {" "}
           <NavLink to={'user-profile'}
-            
+            onClick={()=> setOpen(false)}
             className="btn text-white hover:text-[#130F40] bg-[#130F40] btn-sm mb-2 normal-case"
           >
             Profile

@@ -12,6 +12,7 @@ const photoApi = `https://api.imgbb.com/1/upload?key=${photoApiKEY}`;
 import toast from "react-hot-toast";
 import { useQueryClient } from "@tanstack/react-query";
 import Updatemodal from "./Updatemodal";
+import { useOutletContext } from "react-router-dom";
 
 const Profile = () => {
   const axiosPublic = useAxiosPublic();
@@ -19,6 +20,7 @@ const Profile = () => {
   const userInfo = useUserInfo();
   const [isEdit, setEdit] = useState(false);
   const queryClient = useQueryClient();
+  const isOpen = useOutletContext()
   // photo update
   const {
     register,
@@ -59,10 +61,11 @@ const Profile = () => {
     }
   }
 
-
-
   return (
-    <div className="lg:col-span-8 gap-10 md:gap-10 px-4 col-span-full justify-between md:flex md:flex-row flex flex-col-reverse text-start pb-10">
+
+      <div className={`lg:col-span-8  gap-10 md:gap-10 px-4 col-span-full justify-between md:flex md:flex-row flex flex-col-reverse text-start pb-10 ${
+        !isOpen ? "block" : "hidden"
+      }`}>
       <div className=" text-center overflow-x-hidden">
         <img
           src={
@@ -121,6 +124,7 @@ const Profile = () => {
         <Updatemodal></Updatemodal>
       </div>
     </div>
+    
   );
 };
 

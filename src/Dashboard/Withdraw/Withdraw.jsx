@@ -40,13 +40,17 @@ const Withdraw = () => {
           </span>
         </div>
       </div>
-      <div className="lg:col-span-4 col-span-10 px-4">
+      <div className={`lg:col-span-4 col-span-10 px-4 ${
+          isOpen ? "hidden" : "block"
+        }`}>
         <h1 className="lg:text-2xl text-xl font-bold pb-5">
           Fill out the form to submit a withdrawal request
         </h1>
         <Withdrawfrom></Withdrawfrom>
       </div>
-      <div className="lg:col-span-4 col-span-10 px-4 lg:py-0 pb-5">
+      <div className={`lg:col-span-4 col-span-10 px-4 lg:py-0 pb-5 ${
+          isOpen ? "hidden" : "block"
+        }`}>
         {" "}
         <h1 className="text-3xl py-4 font-bold">Latest Withdraw</h1>
         <LatestDepoWithdraw></LatestDepoWithdraw>
