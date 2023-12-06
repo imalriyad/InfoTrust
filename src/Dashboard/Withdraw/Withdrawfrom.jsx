@@ -3,8 +3,11 @@ import useAuth from "../../Hooks/useAuth";
 import toast from "react-hot-toast";
 import useAxios from "../../Hooks/useAxios";
 import swal from "sweetalert";
+import useUserInfo from "../../Hooks/useUserInfo";
 const Withdrawfrom = () => {
   const { user } = useAuth();
+  const userInfo = useUserInfo()
+  console.log(userInfo);
   const axios = useAxios();
   const [selectedMethod, setSelectedMethod] = useState("");
   const [selectedAmount, setSelectedAmount] = useState("");
@@ -20,7 +23,11 @@ const Withdrawfrom = () => {
     const withdrawalAmount = parseInt(selectedAmount)
     const currentDate = new Date();
     const DateTime = currentDate.toLocaleString();
-
+    if(userInfo?.totalBalance < withdrawalAmount){
+      toast.error("Insufficent Balance");
+      return;
+    }
+    
     if (withdrawalAmount === "") {
       toast.error("Please select a valid Deposit Amount");
       return;

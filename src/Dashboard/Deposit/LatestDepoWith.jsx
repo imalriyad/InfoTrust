@@ -1,4 +1,10 @@
+import { useLocation } from "react-router-dom";
+import useRecentReq from "../../Hooks/useRecentReq";
+
 const LatestDepoWithdraw = () => {
+  const [withdrawreq, deporeq] = useRecentReq();
+  const { pathname } = useLocation();
+
   return (
     <div>
       <div className="overflow-x-auto">
@@ -13,28 +19,37 @@ const LatestDepoWithdraw = () => {
             </tr>
           </thead>
           <tbody>
-            {/* row 1 */}
-            <tr>
-              <td>05-11-2023</td>
-              <td>$30</td>
-              <td>BSC</td>
-
-              <td className="text-error font-semibold">Pending</td>
-            </tr>
-            <tr>
-              <td>11-11-2023</td>
-              <td>$15</td>
-              <td>USDT</td>
-
-              <td className="text-success font-semibold">Paid</td>
-            </tr>
-            <tr>
-              <td>01-11-2023</td>
-              <td>$10</td>
-              <td>TRX</td>
-
-              <td className="text-success font-semibold">Paid</td>
-            </tr>
+            {pathname === "/Dashboard/Withdraw"
+              ? withdrawreq?.map((request) => (
+                  <tr key={request._id}>
+                    <td>{request?.DateTime.split(",")[0]}</td>
+                    <td>{request?.withdrawalAmount}</td>
+                    <td>{request?.withdrawalMethod.split(" ")[0]}</td>
+                    <td
+                      className={`btn btn-sm  text-white ${
+                        request?.status === "Pending"
+                          ? "bg-[#e84118] hover:bg-[#e84118]"
+                          : "bg-[#44bd32] hover:bg-[#44bd32]"
+                      }`}
+                    >
+                      {request?.status}
+                    </td>
+                  </tr>
+                ))
+              : deporeq?.map((request) => (
+                  <tr key={request._id}>
+                    <td>{request?.DateTime?.split(",")[0]}</td>
+                    <td>{request?.depositAmount}</td>
+                    <td>{request?.depositMethod?.split(" ")[0]}</td>
+                    <td className={`btn btn-sm  text-white ${
+                        request?.status === "Pending"
+                          ? "bg-[#e84118] hover:bg-[#e84118]"
+                          : "bg-[#44bd32] hover:bg-[#44bd32]"
+                      }`}>
+                      {request?.status}
+                    </td>
+                  </tr>
+                ))}
           </tbody>
         </table>
       </div>
