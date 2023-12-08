@@ -13,24 +13,26 @@ const Deposit = () => {
   const inputRef2 = useRef(null);
   const inputRef3 = useRef(null);
 
-  const handleInputClick = (inputRef) => () => {
+  const handleInputClick = (inputRef, address) => async () => {
     if (inputRef.current) {
       inputRef.current.select();
-      document.execCommand("copy");
-      toast.success("Address Copied!");
-      const buttons = document.querySelectorAll(".btn");
-
-      buttons.forEach((btn) => {
-        btn.addEventListener("click", (event) => {
-          const clickedButton = event.target;
-          clickedButton.innerText = "Copied";
-
+      try {
+        await navigator.clipboard.writeText(address);
+        toast.success("Address Copied!");
+        const buttons = document.querySelectorAll(".btn");
+  
+        buttons.forEach((btn) => {
+          btn.innerText = "Copied";
+  
           // Reset the button text after 2 seconds
           setTimeout(() => {
-            clickedButton.innerText = "Copy";
+            btn.innerText = "Copy";
           }, 2000);
         });
-      });
+      } catch (error) {
+        console.error("Unable to copy address to clipboard", error);
+        toast.error("Failed to copy address");
+      }
     }
   };
   return (
@@ -54,7 +56,7 @@ const Deposit = () => {
           <input
             type="text"
             ref={inputRef1}
-            defaultValue={"TAQpCTFeJvwdWf6MQZtXXkzWrTS9aymshb"}
+            defaultValue={"TD9eS3jRkHDm2FYYn8jjLZKayJwun1qbcG"}
             readOnly
             placeholder="Type here"
             className="input input-bordered input-sm rounded-sm w-full max-w-xs"
@@ -62,7 +64,7 @@ const Deposit = () => {
           <button
             onClick={handleInputClick(
               inputRef1,
-              "TAQpCTFeJvwdWf6MQZtXXkzWrTS9aymshb"
+              "TD9eS3jRkHDm2FYYn8jjLZKayJwun1qbcG"
             )}
             className="btn btn-sm normal-case rounded-sm text-xs btn-success"
           >
@@ -80,7 +82,7 @@ const Deposit = () => {
           <input
             type="text"
             ref={inputRef2}
-            defaultValue={"0xCE7de646e7208a4Ef112cb6ed5038FA6cC6b12e"}
+            defaultValue={"0x795da56ae39f7017faf947438aa1941e359221d4"}
             readOnly
             placeholder="Type here"
             className="input input-bordered input-sm rounded-sm w-full max-w-xs"
@@ -88,7 +90,7 @@ const Deposit = () => {
           <button
             onClick={handleInputClick(
               inputRef2,
-              "TAQpCTFeJvwdWf6MQZtXXkzWrTS9aymshb"
+              "0x795da56ae39f7017faf947438aa1941e359221d4"
             )}
             className="btn btn-sm normal-case rounded-sm text-xs btn-success"
           >
@@ -107,7 +109,7 @@ const Deposit = () => {
           <input
             type="text"
             ref={inputRef3}
-            defaultValue={"TAQpCTFeJvwdWf6MQZtXXkzWrTS9aymshb"}
+            defaultValue={"TD9eS3jRkHDm2FYYn8jjLZKayJwun1qbcG"}
             readOnly
             placeholder="Type here"
             className="input input-bordered input-sm rounded-sm w-full max-w-xs"
@@ -115,7 +117,7 @@ const Deposit = () => {
           <button
             onClick={handleInputClick(
               inputRef3,
-              "TAQpCTFeJvwdWf6MQZtXXkzWrTS9aymshb"
+              "TD9eS3jRkHDm2FYYn8jjLZKayJwun1qbcG"
             )}
             className="btn btn-success btn-sm normal-case rounded-sm text-xs"
           >
@@ -159,16 +161,16 @@ const Deposit = () => {
           <span className="flex">
             <input
               type="text"
-              ref={inputRef3}
-              defaultValue={"TAQpCTFeJvwdWf6MQZtXXkzWrTS9aymshb"}
+              ref={inputRef1}
+              defaultValue={"TD9eS3jRkHDm2FYYn8jjLZKayJwun1qbcG"}
               readOnly
               placeholder="Type here"
               className="input input-bordered input-sm rounded-sm w-full max-w-xs"
             />{" "}
             <button
               onClick={handleInputClick(
-                inputRef3,
-                "TAQpCTFeJvwdWf6MQZtXXkzWrTS9aymshb"
+                inputRef1,
+                "TD9eS3jRkHDm2FYYn8jjLZKayJwun1qbcG"
               )}
               className="btn btn-success btn-sm normal-case rounded-sm text-xs"
             >
@@ -190,15 +192,15 @@ const Deposit = () => {
             <input
               type="text"
               ref={inputRef2}
-              defaultValue={"0xCE7de646e7208a4Ef112cb6ed5038FA6cC6b12e"}
+              defaultValue={"0x795da56ae39f7017faf947438aa1941e359221d4"}
               readOnly
               placeholder="Type here"
               className="input input-bordered input-sm rounded-sm w-full max-w-xs"
             />
             <button
               onClick={handleInputClick(
-                inputRef3,
-                "TAQpCTFeJvwdWf6MQZtXXkzWrTS9aymshb"
+                inputRef2,
+                "0x795da56ae39f7017faf947438aa1941e359221d4"
               )}
               className="btn btn-success btn-sm normal-case rounded-sm text-xs"
             >
@@ -219,7 +221,7 @@ const Deposit = () => {
             <input
               type="text"
               ref={inputRef3}
-              defaultValue={"TAQpCTFeJvwdWf6MQZtXXkzWrTS9aymshb"}
+              defaultValue={"TD9eS3jRkHDm2FYYn8jjLZKayJwun1qbcG"}
               readOnly
               placeholder="Type here"
               className="input input-bordered input-sm rounded-sm w-full max-w-xs"
@@ -227,7 +229,7 @@ const Deposit = () => {
             <button
               onClick={handleInputClick(
                 inputRef3,
-                "TAQpCTFeJvwdWf6MQZtXXkzWrTS9aymshb"
+                "TD9eS3jRkHDm2FYYn8jjLZKayJwun1qbcG"
               )}
               className="btn btn-success btn-sm normal-case rounded-sm text-xs"
             >

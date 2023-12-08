@@ -20,7 +20,8 @@ const Login = () => {
     if (user?.emailVerified === false) {
       return swal(
         "Error",
-        "Please check your email to verify your email address",
+        `Please check your email to 
+        verify your email address`,
         "error",
         {
           button: "Okay",

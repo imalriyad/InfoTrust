@@ -14,7 +14,6 @@ const States = () => {
   const inputRef = useRef(null);
   const inputRefLG = useRef(null);
   const userInfo = useUserInfo();
-  console.log(userInfo);
   const handleRefferCodeLg = (event) => {
     if (inputRefLG.current) {
       inputRefLG.current.select();

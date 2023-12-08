@@ -39,9 +39,12 @@ const DepositReq = () => {
                   res.data?.totalBalance + depositAmount;
                 const updatedTotalSpent = res.data?.totalSpent + depositAmount;
                 const updateFeild = { updatedTotalBalance, updatedTotalSpent };
-
-                axios.patch(`/update-user/${userId}`, updateFeild).then(() => {
-                  queryClient.invalidateQueries("getdepositRequest");
+                axios.post(`/deposit/${userId}`, { depositAmount }).then(() => {
+                  axios
+                    .patch(`/update-user/${userId}`, updateFeild)
+                    .then(() => {
+                      queryClient.invalidateQueries("getdepositRequest");
+                    });
                 });
               });
             }

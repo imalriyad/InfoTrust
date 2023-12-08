@@ -28,7 +28,8 @@ const WithdrawReq = () => {
           .patch(`/confirm-withdraw-request/${id}`, status)
           .then((res) => {
             if (res.data.modifiedCount > 0) {
-              swal("Yay! Withdraw Successfully Approved!", {
+              swal(`Yay! 
+              Withdraw Successfully Approved!`, {
                 icon: "success",
               });
 

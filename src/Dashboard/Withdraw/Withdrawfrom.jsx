@@ -10,7 +10,6 @@ const Withdrawfrom = () => {
   console.log(userInfo);
   const axios = useAxios();
   const [selectedMethod, setSelectedMethod] = useState("");
-  const [selectedAmount, setSelectedAmount] = useState("");
   const handleWithdrawForm = (e) => {
     e.preventDefault();
     const from = e.target;
@@ -20,9 +19,10 @@ const Withdrawfrom = () => {
     const WithdrawAddress = from.address.value;
     const status = "Pending";
     const withdrawalMethod = selectedMethod;
-    const withdrawalAmount = parseInt(selectedAmount)
+    const withdrawalAmount = parseInt(from.withdrawalAmount.value)
     const currentDate = new Date();
     const DateTime = currentDate.toLocaleString();
+   
     if(userInfo?.totalBalance < withdrawalAmount){
       toast.error("Insufficent Balance");
       return;
@@ -30,6 +30,11 @@ const Withdrawfrom = () => {
     
     if (withdrawalAmount === "") {
       toast.error("Please select a valid Deposit Amount");
+      return;
+    }
+
+    if (withdrawalAmount <15) {
+      toast.error("Minimum Deposit Amount is $15");
       return;
     }
     if (withdrawalMethod === "") {
@@ -63,10 +68,7 @@ const Withdrawfrom = () => {
     setSelectedMethod(withdrawalMethod);
   };
 
-  const handleSelectAmount = (e) => {
-    const withdrawalAmount = e.target.value;
-    setSelectedAmount(withdrawalAmount);
-  };
+  
 
   return (
     <div className="py-5">
@@ -113,6 +115,8 @@ const Withdrawfrom = () => {
             className="border-stroke mt-2  text-black text-body-color focus:border-mainColor w-full rounded border py-3 px-[14px] md:text-sm text-xs outline-none "
           />
         </div>
+
+       
         <div className="mb-4 flex flex-col">
           <span className="font-semibold text-secondColor md:text-base text-xs">
             Withdraw Address
@@ -125,22 +129,21 @@ const Withdrawfrom = () => {
             className="border-stroke mt-2  text-black text-body-color focus:border-mainColor w-full rounded border py-3 px-[14px] md:text-sm text-xs outline-none "
           />
         </div>
+
+ {/* Withdraw amount */}
         <div className="mb-4 flex flex-col">
           <span className="font-semibold text-secondColor md:text-base text-xs">
             Withdraw Amount
           </span>
-          <select
-            onChange={handleSelectAmount}
-            value={selectedAmount}
+          <input
+            type="text"
+            placeholder="Withdraw Amount"
+            name="withdrawalAmount"
             required
-            className="border-stroke mt-2 text-black text-body-color focus:border-mainColor w-full rounded border py-3 pl-2 md:text-sm text-xs outline-none cursor-pointer "
-          >
-            <option>Withdraw Amount</option>
-            <option value={5}>5</option>
-            <option value={10}>10</option>
-            <option value={20}>20</option>
-          </select>
+            className="border-stroke mt-2  text-black text-body-color focus:border-mainColor w-full rounded border py-3 px-[14px] md:text-sm text-xs outline-none "
+          />
         </div>
+       
         <div className="mb-4 flex flex-col">
           <span className="font-semibold text-secondColor md:text-base text-xs">
             Withdraw Method

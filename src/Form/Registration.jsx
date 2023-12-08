@@ -43,7 +43,8 @@ const Registration = () => {
         sendEmailVerification(res.user).then(() => {
           swal(
             "Congratulations",
-            "Email Verification Sent. Please Check Your Email",
+            `Email Verification Sent.
+             Please Check Your Email`,
             "success",
             {
               button: "Okay",
