@@ -94,11 +94,11 @@ const Navbar = () => {
                 About
               </li>
             </Link>
-            <Link to={"/Packages"}>
+            {/* <Link to={"/Packages"}>
               <li className="block py-2 pl-3 pr-4 rounded text-white hover:text-mainColor font-semibold ">
                 Packages
               </li>
-            </Link>
+            </Link> */}
             <Link to={"/Contact"}>
               <li className="block py-2 pl-3 pr-4 rounded text-white hover:text-mainColor font-semibold ">
                 Contact

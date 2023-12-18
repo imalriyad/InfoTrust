@@ -1,8 +1,18 @@
+import { useEffect, useState } from "react";
 import CountUp from "react-countup";
 import { FaRegUser } from "react-icons/fa";
 import { TbMoneybag } from "react-icons/tb";
 import { Link } from "react-router-dom";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
 const Footer = () => {
+  const axiosPublic = useAxiosPublic()
+  const [totoalUSer ,setTotalUser] = useState(0)
+  useEffect(()=>{
+    axiosPublic.get('/get-total-user').then(res=> setTotalUser(res.data))
+  },[axiosPublic])
+
+
+
   return (
     <div className="bg-[#131a22]">
       <footer className="px-4 divide-y max-w-screen-2xl text-white mx-auto">
@@ -94,7 +104,7 @@ const Footer = () => {
                     <FaRegUser className="text-3xl text-mainColor"></FaRegUser>
                     <span className="flex flex-col">
                       <p className="text-xl">
-                        <CountUp start={1875} end={92570} duration={2.75}>
+                        <CountUp start={1875} end={19490+totoalUSer.totalUser} duration={2.75}>
                           {({ countUpRef, start }) => (
                             <div>
                               <span ref={countUpRef} />

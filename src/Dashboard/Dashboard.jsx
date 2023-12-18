@@ -12,7 +12,7 @@ const Dashboard = () => {
     <div className="bg-[#f1f2f6] ">
       <div className="grid grid-cols-10 gap-5 lg:mr-10">
         {/* Dashboard sidemenu */}
-        <div className="bg-[#130f40] hidden lg:block h-full row-span-6 col-span-2">
+        <div className="bg-[#130f40] hidden lg:block h-full row-span-6 col-span-2 ">
           <Link to={"/"} className="flex items-center justify-center py-6">
             <img
               src="https://i.postimg.cc/rsDP8skz/Invo-Trust-03.png"
@@ -22,7 +22,7 @@ const Dashboard = () => {
          
           </Link>
 
-          <SideMenu></SideMenu>
+          <SideMenu isOpen={isOpen} setOpen={setOpen}></SideMenu>
         </div>
 
         {/* Dashboard playGround */}
@@ -54,7 +54,7 @@ const Dashboard = () => {
             <div
               className={`transition-transform transform ${
                 isOpen ? "translate-x-0" : "-translate-x-full"
-              } fixed top-0 left-0 w-64 z-40 h-screen bg-[#130f40] p-5`}
+              } fixed top-0 left-0 w-64 z-40   bg-[#130f40] p-5`}
             >
               {isOpen ? <SideMenu></SideMenu> : ""}
             </div>

@@ -8,7 +8,7 @@ import Faq from "../Components/Faq";
 import Registration from "../Form/Registration";
 import Login from "../Form/Login";
 import ResetPass from "../Form/ResetPass";
-import Packages from "../Pages/Packages";
+// import Packages from "../Pages/Packages";
 import Dashboard from "../Dashboard/Dashboard";
 import States from "../Dashboard/States";
 import Market from "../Dashboard/Market";
@@ -43,10 +43,10 @@ const router = createBrowserRouter([
         path: "/About",
         element: <Faq></Faq>,
       },
-      {
-        path: "/Packages",
-        element: <Packages></Packages>,
-      },
+      // {
+      //   path: "/Packages",
+      //   element: <Packages></Packages>,
+      // },
       {
         path: "/PostDetails/:id",
         element: <PostDetails></PostDetails>,

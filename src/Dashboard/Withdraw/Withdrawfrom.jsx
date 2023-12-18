@@ -6,8 +6,8 @@ import swal from "sweetalert";
 import useUserInfo from "../../Hooks/useUserInfo";
 const Withdrawfrom = () => {
   const { user } = useAuth();
-  const userInfo = useUserInfo()
-  console.log(userInfo);
+  const [userInfo,] = useUserInfo()
+
   const axios = useAxios();
   const [selectedMethod, setSelectedMethod] = useState("");
   const handleWithdrawForm = (e) => {
@@ -20,9 +20,7 @@ const Withdrawfrom = () => {
     const status = "Pending";
     const withdrawalMethod = selectedMethod;
     const withdrawalAmount = parseInt(from.withdrawalAmount.value)
-    const currentDate = new Date();
-    const DateTime = currentDate.toLocaleString();
-   
+    const DateTime = new Date();
     if(userInfo?.totalBalance < withdrawalAmount){
       toast.error("Insufficent Balance");
       return;
@@ -34,7 +32,7 @@ const Withdrawfrom = () => {
     }
 
     if (withdrawalAmount <15) {
-      toast.error("Minimum Deposit Amount is $15");
+      toast.error("Minimum Withdraw Amount is $15");
       return;
     }
     if (withdrawalMethod === "") {
@@ -159,7 +157,7 @@ const Withdrawfrom = () => {
             <option value={"BSC (BEP20)"}>BSC (BEP20)</option>
             <option value={"TRX (TRC20)"}>TRX (TRC20)</option>
           </select>
-        </div>
+        </div>   
 
         <div className="col-span-2">
           <button

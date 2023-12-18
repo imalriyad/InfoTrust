@@ -1,6 +1,5 @@
 import Pricing from "../Components/Pricing";
 
-
 const Packages = () => {
     return (
         <div className="bg-black ">

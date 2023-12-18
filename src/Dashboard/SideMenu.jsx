@@ -1,11 +1,10 @@
 /* eslint-disable react/prop-types */
-import { NavLink, useNavigate, useOutletContext } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 import toast from "react-hot-toast";
-const SideMenu = () => {
+const SideMenu = ({setOpen}) => {
   const { user ,logout } = useAuth();
   const adminMail = import.meta.env.VITE_ADMIN_MAIL;
-  const setOpen = useOutletContext()
   const navigate = useNavigate();
   const logOut = () => {
     logout()
@@ -42,7 +41,7 @@ const SideMenu = () => {
         />
         Market
       </NavLink>
-      <NavLink
+      {/* <NavLink
         to={"Packages"}
         className="xl:text-xl lg:text-lg flex gap-5 items-center tracking-wide py-4"
       >
@@ -52,7 +51,7 @@ const SideMenu = () => {
           alt=""
         />
         Packages
-      </NavLink>
+      </NavLink> */}
       <NavLink
         to={"Deposit"}
         className="xl:text-xl lg:text-lg flex gap-5 items-center tracking-wide py-4"

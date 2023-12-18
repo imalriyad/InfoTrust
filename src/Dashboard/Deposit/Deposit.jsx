@@ -5,10 +5,11 @@ import toast from "react-hot-toast";
 import DepositFrom from "./DepositFrom";
 import LatestDepoWithdraw from "./LatestDepoWith";
 import useUserInfo from "../../Hooks/useUserInfo";
+import Marquee from "react-fast-marquee";
 
 const Deposit = () => {
   const isOpen = useOutletContext();
-  const userInfo = useUserInfo();
+  const [userInfo, ] = useUserInfo();
   const inputRef1 = useRef(null);
   const inputRef2 = useRef(null);
   const inputRef3 = useRef(null);
@@ -20,10 +21,10 @@ const Deposit = () => {
         await navigator.clipboard.writeText(address);
         toast.success("Address Copied!");
         const buttons = document.querySelectorAll(".btn");
-  
+
         buttons.forEach((btn) => {
           btn.innerText = "Copied";
-  
+
           // Reset the button text after 2 seconds
           setTimeout(() => {
             btn.innerText = "Copy";
@@ -125,7 +126,8 @@ const Deposit = () => {
           </button>
         </span>
       </div>
-
+      
+      
       {/* For small screens (phones), place divs in a single row */}
       <div
         className={`px-2 lg:hidden block cursor-pointer drop-shadow-md space-y-4 rounded-sm col-span-10 md:col-span-full ${
@@ -237,18 +239,46 @@ const Deposit = () => {
             </button>
           </span>
         </div>
+
+        <div className="bg-[#130f40] cursor-pointer drop-shadow-md space-y-3 p-5 rounded-sm col-span-2 lg:col-span-2">
+          <div className="flex gap-3 items-center">
+            <img
+              src="https://i.postimg.cc/4ypGT0S1/telegram.png"
+              className="w-[40px] object-cover"
+              alt=""
+            />
+            <span className="flex flex-col"><Marquee speed={30}><h1 className="text-mainColor font-medium text-sm"><span className="mx-6">|</span> To get Bkash/Nagad Deposit number contact with our Agent</h1></Marquee>
+            <a className="text-white text-sm underline" href="https://t.me/invotrust" target="_blank" rel="noreferrer">https://t.me/invotrust</a></span>
+          </div>
+         
+        </div>
       </div>
 
       <div className="lg:col-span-4 col-span-10 px-4">
-        <h1 className="lg:text-2xl text-xl font-bold pb-5">
+        <h1 className="lg:text-xl text-lg font-bold pb-5">
           Fill out the form after transferring USDT/BSC/TRX to the Deposit
           Address
         </h1>
         <DepositFrom></DepositFrom>
       </div>
-      <div className="lg:col-span-4 col-span-10 px-4 lg:py-0 py-5">
+
+      {/* Telegram agent link */}
+      <div className="lg:col-span-4 col-span-10 px-4 lg:py-0 py-5 lg:block hidden">
+      <div className="bg-[#130f40] cursor-pointer drop-shadow-md space-y-3 p-5 rounded-sm col-span-2 lg:col-span-2">
+          <div className="flex gap-3 items-center">
+            <img
+              src="https://i.postimg.cc/4ypGT0S1/telegram.png"
+              className="w-[40px] object-cover"
+              alt=""
+            />
+            <span className="flex flex-col"><Marquee speed={30}><h1 className="text-mainColor font-medium text-sm"><span className="mx-6">|</span> To get Bkash/Nagad Deposit number contact with our Agent</h1></Marquee>
+            <a className="text-white text-sm underline" href="https://t.me/invotrust" target="_blank" rel="noreferrer">https://t.me/invotrust</a></span>
+          </div>
+         
+        </div>
         <h1 className="text-3xl py-4 font-bold">Latest Deposit</h1>
         <LatestDepoWithdraw></LatestDepoWithdraw>
+       
       </div>
     </>
   );

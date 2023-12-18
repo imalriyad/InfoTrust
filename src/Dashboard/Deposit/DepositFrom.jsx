@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 
 const DepositFrom = () => {
   const [selectedMethod, setSelected] = useState("");
-  const [selectedAmount, setSelectedAmount] = useState("");
+
   const axios = useAxios();
   const { user } = useAuth();
 
@@ -19,15 +19,19 @@ const DepositFrom = () => {
     const transectionId = from.transectionId.value;
     const status = "Pending";
     const depositMethod = selectedMethod;
-    const depositAmount = parseInt(selectedAmount)
-    const currentDate = new Date();
-    const DateTime = currentDate.toLocaleString();
+    const depositAmount = parseInt(from.depositAmount.value);
+    const DateTime = new Date();
     if (depositAmount === "") {
       toast.error("Please select a valid Deposit Amount");
       return;
     }
     if (depositMethod === "") {
       toast.error("Please select a valid Deposit Method");
+      return;
+    }
+
+    if (depositAmount < 5) {
+      toast.error("Minimum Deposit Amount is $5");
       return;
     }
 
@@ -43,7 +47,7 @@ const DepositFrom = () => {
     };
 
     axios.post("/create-deposit", depositRequest).then((res) => {
-      if (res.data.insertedId) { 
+      if (res.data.insertedId) {
         swal({
           title: "Congrats!",
           text: "Your deposit request is successful! In 15 to 30 minutes it will be credited to your balance",
@@ -58,10 +62,7 @@ const DepositFrom = () => {
     const depositMethod = e.target.value;
     setSelected(depositMethod);
   };
-  const handleSelectAmount = (e) => {
-    const depositAmount = e.target.value;
-    setSelectedAmount(depositAmount);
-  };
+ 
   return (
     <div className="py-5">
       <form
@@ -69,7 +70,7 @@ const DepositFrom = () => {
         className="grid grid-cols-2 md:gap-6 gap-3"
       >
         <div className="mb-6 flex flex-col">
-          <span className="font-semibold text-secondColor">Name</span>
+          <span className="font-semibold text-secondColor md:text-base text-xs">Name</span>
           <input
             type="text"
             placeholder="Name"
@@ -81,7 +82,7 @@ const DepositFrom = () => {
           />
         </div>
         <div className="mb-6 flex flex-col">
-          <span className="font-semibold text-secondColor">Email</span>
+          <span className="font-semibold text-secondColor md:text-base text-xs">Email</span>
           <input
             type="email"
             defaultValue={user?.email}
@@ -94,7 +95,7 @@ const DepositFrom = () => {
         </div>
 
         <div className="mb-4 flex flex-col">
-          <span className="font-semibold text-secondColor">Mobile number</span>
+          <span className="font-semibold text-secondColor md:text-base text-xs">Mobile number</span>
           <input
             type="number"
             placeholder="Mobile number"
@@ -104,7 +105,7 @@ const DepositFrom = () => {
           />
         </div>
         <div className="mb-4 flex flex-col">
-          <span className="font-semibold text-secondColor">Transection Id</span>
+          <span className="font-semibold text-secondColor md:text-base text-xs">Transection Id</span>
           <input
             type="text"
             name="transectionId"
@@ -113,22 +114,22 @@ const DepositFrom = () => {
             className="border-stroke mt-2  text-black text-body-color focus:border-mainColor w-full rounded border py-3 px-[14px] md:text-sm text-xs outline-none "
           />
         </div>
+
         <div className="mb-4 flex flex-col">
-          <span className="font-semibold text-secondColor">Deposit Amount</span>
-          <select
-            onChange={handleSelectAmount}
-            value={selectedAmount}
+          <span className="font-semibold text-secondColor md:text-base text-xs">
+            Deposit Amount
+          </span>
+          <input
+            type="text"
+            placeholder="Min Deposit $5"
+            name="depositAmount"
             required
-            className="border-stroke mt-2 text-black text-body-color focus:border-mainColor w-full rounded border py-3 pl-2 md:text-sm text-xs outline-none cursor-pointer "
-          >
-            <option selected>Deposit Amount</option>
-            <option value={5}>5</option>
-            <option value={10}>10</option>
-            <option value={20}>20</option>
-          </select>
+            className="border-stroke mt-2  text-black text-body-color focus:border-mainColor w-full rounded border py-3 px-[14px] md:text-sm text-xs outline-none "
+          />
         </div>
+
         <div className="mb-4 flex flex-col">
-          <span className="font-semibold text-secondColor">Deposit Method</span>
+          <span className="font-semibold text-secondColor md:text-base text-xs">Deposit Method</span>
           <select
             onChange={handleSelectMethod}
             value={selectedMethod}

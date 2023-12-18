@@ -41,7 +41,7 @@ const LatestDepoWithdraw = () => {
                     <td>{request?.DateTime?.split(",")[0]}</td>
                     <td>{request?.depositAmount}</td>
                     <td>{request?.depositMethod?.split(" ")[0]}</td>
-                    <td className={`btn btn-sm  text-white ${
+                    <td className={`btn btn-xs  text-white ${
                         request?.status === "Pending"
                           ? "bg-[#e84118] hover:bg-[#e84118]"
                           : "bg-[#44bd32] hover:bg-[#44bd32]"

@@ -12,7 +12,7 @@ import {
 import useUserInfo from "../Hooks/useUserInfo";
 
 const Chart = () => {
-  const userInfo = useUserInfo();
+  const [userInfo, refetch] = useUserInfo();
   const data = [
     {
       name: "Statistics",

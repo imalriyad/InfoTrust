@@ -8,12 +8,16 @@ import Chart from "./Chart";
 import { useRef } from "react";
 import toast from "react-hot-toast";
 import useUserInfo from "../Hooks/useUserInfo";
+import { TbBadge } from "react-icons/tb";
+import swal from "sweetalert";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
 
 const States = () => {
   const isOpen = useOutletContext();
   const inputRef = useRef(null);
   const inputRefLG = useRef(null);
-  const userInfo = useUserInfo();
+  const [userInfo, refetch] = useUserInfo();
+  const axiosPublic = useAxiosPublic();
   const handleRefferCodeLg = (event) => {
     if (inputRefLG.current) {
       inputRefLG.current.select();
@@ -40,6 +44,27 @@ const States = () => {
     setTimeout(() => {
       button.innerText = "Copy";
     }, 2000);
+  };
+
+  const handleBonus = (bonusAmount) => {
+    const userId = userInfo?._id;
+    const updatedTotalBalance = userInfo?.totalBalance + bonusAmount;
+    const totalProfit = userInfo?.totalProfit + bonusAmount;
+    const totalReferral = userInfo?.totalReferral + 1;
+    const updateFeild = {
+      updatedTotalBalance,
+      totalProfit,
+      totalReferral,
+    };
+    axiosPublic.patch(`/update-user/${userId}`, updateFeild).then(() => {
+      swal(
+        "Congrats!",
+        `Bonus $${bonusAmount} Claim Succesfully
+        Cheak Your Balance`,
+        "success"
+      );
+      refetch();
+    });
   };
 
   return (
@@ -95,6 +120,76 @@ const States = () => {
             Copy
           </button>
         </span>
+      </div>
+
+      {/* Reffer Progress */}
+      <div className="bg-[#130f40] lg:block hidden cursor-pointer drop-shadow-md space-y-3 p-6 rounded-sm col-span-4">
+        <h1 className="text-secondColor flex gap-2 items-center text-base font-medium">
+          <TbBadge className=" text-2xl text-mainColor"></TbBadge>{" "}
+          {userInfo?.totalReferral < 50 ? "Level 1" : "Level 2"}
+        </h1>
+
+        {userInfo?.totalReferral < 26 ? (
+          <span>
+            <div
+              className="tooltip flex items-center text-white tooltip-open tooltip-success "
+              data-tip={`${(userInfo?.totalReferral / 25).toFixed(2) * 100}%`}
+            >
+              <progress
+                className="progress progress-success w-56 "
+                value={userInfo?.totalReferral}
+                max="25"
+              ></progress>
+              <h1 className="text-lg font-medium text-white">25</h1>
+            </div>
+            <div className="flex flex-col">
+              <h1 className="text-white pb-2 text-sm">
+                You need more {25 - userInfo?.totalReferral} Reffer to claim $30
+              </h1>{" "}
+              <button
+                onClick={() => handleBonus(30)}
+                className={`btn btn-sm btn-success ${
+                  userInfo?.totalReferral < 25
+                    ? "disabled:bg-success cursor-not-allowed disabled:cursor-not-allowed"
+                    : ""
+                }`}
+                disabled={userInfo?.totalReferral < 25}
+              >
+                Claim
+              </button>
+            </div>
+          </span>
+        ) : (
+          <span>
+            <div
+              className="tooltip flex items-center text-white tooltip-open tooltip-success "
+              data-tip={`${(userInfo?.totalReferral / 75).toFixed(2) * 100}%`}
+            >
+              <progress
+                className="progress progress-success w-56 "
+                value={userInfo?.totalReferral}
+                max="75"
+              ></progress>
+              <h1 className="text-lg font-medium text-white">75</h1>
+            </div>
+            <div className="flex flex-col">
+              <h1 className="text-white pb-2 text-sm">
+                You need more {75 - userInfo?.totalReferral} Reffer to claim $90
+              </h1>{" "}
+              <button
+                onClick={() => handleBonus(90)}
+                className={`btn btn-sm btn-success ${
+                  userInfo?.totalReferral < 75
+                    ? "disabled:bg-success cursor-not-allowed disabled:cursor-not-allowed"
+                    : ""
+                }`}
+                disabled={userInfo?.totalReferral < 75}
+              >
+                Claim
+              </button>
+            </div>
+          </span>
+        )}
       </div>
 
       <div className="col-span-8 lg:block hidden">
@@ -159,6 +254,79 @@ const States = () => {
           </span>
         </div>
 
+        {/* Reffer progress */}
+        <div className="bg-[#130f40] cursor-pointer drop-shadow-md space-y-3 p-4 rounded-sm col-span-2 lg:col-span-2">
+          <h1 className="text-secondColor flex gap-2 items-center text-base font-medium">
+            <TbBadge className=" text-2xl text-mainColor"></TbBadge>{" "}
+            {userInfo?.totalReferral < 50 ? "Level 1" : "Level 2"}
+          </h1>
+
+          {userInfo?.totalReferral < 26 ? (
+            <span>
+              <div
+                className="tooltip flex items-center text-white tooltip-open tooltip-success "
+                data-tip={`${(userInfo?.totalReferral / 25).toFixed(2) * 100}%`}
+              >
+                <progress
+                  className="progress progress-success w-56 "
+                  value={userInfo?.totalReferral}
+                  max="25"
+                ></progress>
+                <h1 className="text-lg font-medium text-white">25</h1>
+              </div>
+              <div className="flex flex-col">
+                <h1 className="text-white pb-2 text-sm">
+                  You need more {25 - userInfo?.totalReferral} Reffer to claim
+                  $30
+                </h1>{" "}
+                <button
+                  onClick={() => handleBonus(30)}
+                  className={`btn btn-xs btn-success ${
+                    userInfo?.totalReferral < 25
+                      ? "disabled:bg-success cursor-not-allowed disabled:cursor-not-allowed"
+                      : ""
+                  }`}
+                  disabled={userInfo?.totalReferral < 25}
+                >
+                  Claim
+                </button>
+              </div>
+            </span>
+          ) : (
+            <span>
+              <div
+                className="tooltip flex items-center text-white tooltip-open tooltip-success "
+                data-tip={`${(userInfo?.totalReferral / 75).toFixed(2) * 100}%`}
+              >
+                <progress
+                  className="progress progress-success w-56 "
+                  value={userInfo?.totalReferral}
+                  max="75"
+                ></progress>
+                <h1 className="text-lg font-medium text-white">75</h1>
+              </div>
+              <div className="flex flex-col">
+                <h1 className="text-white pb-2 text-sm">
+                  You need more {75 - userInfo?.totalReferral} Reffer to claim
+                  $90
+                </h1>{" "}
+                <button
+                  onClick={() => handleBonus(90)}
+                  className={`btn btn-xs btn-success ${
+                    userInfo?.totalReferral < 75
+                      ? "disabled:bg-success cursor-not-allowed disabled:cursor-not-allowed"
+                      : ""
+                  }`}
+                  disabled={userInfo?.totalReferral < 75}
+                >
+                  Claim
+                </button>
+              </div>
+            </span>
+          )}
+        </div>
+
+        {/* Reffer code */}
         <div className="bg-[#130f40] cursor-pointer drop-shadow-md space-y-3 p-4 rounded-sm col-span-2 lg:col-span-2">
           <h1 className="text-secondColor flex gap-2 items-center text-base font-medium">
             <HiLink className=" text-2xl text-mainColor"></HiLink> Reffer Code
@@ -180,7 +348,6 @@ const States = () => {
             </button>
           </span>
         </div>
-
         <div className="col-span-full block lg:hidden">
           <Chart></Chart>
         </div>

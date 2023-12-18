@@ -6,9 +6,9 @@ const MainLayout = () => {
   const { pathname } = useLocation();
   pathname === "/" ? (document.title = "InvoTrust | Home") : pathname;
   pathname === "/About" ? (document.title = "InvoTrust | About") : pathname;
-  pathname === "/Packages"
-    ? (document.title = "InvoTrust | Packages")
-    : pathname;
+  // pathname === "/Packages"
+  //   ? (document.title = "InvoTrust | Packages")
+  //   : pathname;
   pathname === "/Contact" ? (document.title = "InvoTrust | Contact") : pathname;
   pathname === "/Blog" ? (document.title = "InvoTrust | Blog") : pathname;
   pathname === "/Login" ? (document.title = "InvoTrust | Login") : pathname;
