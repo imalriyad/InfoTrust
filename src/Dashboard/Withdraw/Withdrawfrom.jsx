@@ -6,7 +6,7 @@ import swal from "sweetalert";
 import useUserInfo from "../../Hooks/useUserInfo";
 const Withdrawfrom = () => {
   const { user } = useAuth();
-  const [userInfo,] = useUserInfo()
+  const [userInfo] = useUserInfo();
 
   const axios = useAxios();
   const [selectedMethod, setSelectedMethod] = useState("");
@@ -19,19 +19,19 @@ const Withdrawfrom = () => {
     const WithdrawAddress = from.address.value;
     const status = "Pending";
     const withdrawalMethod = selectedMethod;
-    const withdrawalAmount = parseInt(from.withdrawalAmount.value)
+    const withdrawalAmount = parseInt(from.withdrawalAmount.value);
     const DateTime = new Date();
-    if(userInfo?.totalBalance < withdrawalAmount){
+    if (userInfo?.totalBalance < withdrawalAmount) {
       toast.error("Insufficent Balance");
       return;
     }
-    
+
     if (withdrawalAmount === "") {
       toast.error("Please select a valid Deposit Amount");
       return;
     }
 
-    if (withdrawalAmount <15) {
+    if (withdrawalAmount < 15) {
       toast.error("Minimum Withdraw Amount is $15");
       return;
     }
@@ -59,14 +59,12 @@ const Withdrawfrom = () => {
         });
       }
     });
-    from.reset()
+    from.reset();
   };
   const handleSelectmethod = (e) => {
     const withdrawalMethod = e.target.value;
     setSelectedMethod(withdrawalMethod);
   };
-
-  
 
   return (
     <div className="py-5">
@@ -102,33 +100,36 @@ const Withdrawfrom = () => {
         </div>
 
         <div className="mb-4 flex flex-col">
-          <span className="font-semibold text-secondColor md:text-base text-xs">
-            Mobile number
-          </span>
+          <span className="font-semibold text-secondColor md:text-base text-xs">Bkash/Nagad number</span>
           <input
             type="number"
-            placeholder="Mobile number"
+            placeholder="Bkash/Nagad number"
             name="number"
             required
             className="border-stroke mt-2  text-black text-body-color focus:border-mainColor w-full rounded border py-3 px-[14px] md:text-sm text-xs outline-none "
           />
         </div>
 
-       
         <div className="mb-4 flex flex-col">
           <span className="font-semibold text-secondColor md:text-base text-xs">
-            Withdraw Address
+            Withdraw Method
           </span>
-          <input
-            type="text"
-            placeholder="Withdraw Address"
-            name="address"
-            required
-            className="border-stroke mt-2  text-black text-body-color focus:border-mainColor w-full rounded border py-3 px-[14px] md:text-sm text-xs outline-none "
-          />
+
+          <select
+            onChange={handleSelectmethod}
+            value={selectedMethod}
+            className="border-stroke mt-2 text-black text-body-color focus:border-mainColor w-full rounded border py-3 pl-2 md:text-sm text-xs outline-none cursor-pointer "
+          >
+            <option>Withdraw Method</option>
+            <option value={"Bkash"}>Bkash</option>
+            <option value={"Nagad"}>Nagad</option>
+            <option value={"USDT (TRC20)"}>USDT (TRC20)</option>
+            <option value={"BSC (BEP20)"}>BSC (BEP20)</option>
+            <option value={"TRX (TRC20)"}>TRX (TRC20)</option>
+          </select>
         </div>
 
- {/* Withdraw amount */}
+        {/* Withdraw amount */}
         <div className="mb-4 flex flex-col">
           <span className="font-semibold text-secondColor md:text-base text-xs">
             Withdraw Amount
@@ -141,23 +142,19 @@ const Withdrawfrom = () => {
             className="border-stroke mt-2  text-black text-body-color focus:border-mainColor w-full rounded border py-3 px-[14px] md:text-sm text-xs outline-none "
           />
         </div>
-       
-        <div className="mb-4 flex flex-col">
-          <span className="font-semibold text-secondColor md:text-base text-xs">
-            Withdraw Method
-          </span>
 
-          <select
-            onChange={handleSelectmethod}
-            value={selectedMethod}
-            className="border-stroke mt-2 text-black text-body-color focus:border-mainColor w-full rounded border py-3 pl-2 md:text-sm text-xs outline-none cursor-pointer "
-          >
-            <option>Withdraw Method</option>
-            <option value={"USDT (TRC20)"}>USDT (TRC20)</option>
-            <option value={"BSC (BEP20)"}>BSC (BEP20)</option>
-            <option value={"TRX (TRC20)"}>TRX (TRC20)</option>
-          </select>
-        </div>   
+        <div className={`mb-4 flex flex-col ${selectedMethod === 'Bkash' || selectedMethod === 'Nagad' ? 'hidden': 'block'}`}>
+          <span className="font-semibold text-secondColor md:text-base text-xs">
+            Withdraw Address
+          </span>
+          <input
+            type="text"
+            placeholder="Withdraw Address"
+            name="address"
+            
+            className="border-stroke mt-2  text-black text-body-color focus:border-mainColor w-full rounded border py-3 px-[14px] md:text-sm text-xs outline-none "
+          />
+        </div>
 
         <div className="col-span-2">
           <button

@@ -143,7 +143,6 @@ const Registration = () => {
                       type="text"
                       placeholder="Reffer Code"
                       name="inputRefferCode"
-                      required
                       className="border-stroke mt-2 text-black text-body-color focus:border-mainColor w-full rounded border py-3 px-[14px] text-sm outline-none "
                     />
                   </div>

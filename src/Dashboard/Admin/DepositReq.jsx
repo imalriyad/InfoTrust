@@ -7,8 +7,8 @@ import { useRef, useState } from "react";
 const DepositReq = () => {
   const axios = useAxios();
   const queryClient = useQueryClient();
-  const profitRef = useRef(null) 
-  const [profit,setProfit] = useState(0)
+  const profitRef = useRef(null);
+  const [profit, setProfit] = useState(0);
   const { data: depositRequest } = useQuery({
     queryKey: ["getdepositRequest"],
     queryFn: async () => {
@@ -77,22 +77,22 @@ const DepositReq = () => {
 
   // cheak total profit
   const cheakprofit = () => {
-    let baseAmount = profitRef.current.value
+    let baseAmount = profitRef.current.value;
     if (baseAmount >= 20) {
       const percentage = 0.04;
       const totalProfit = baseAmount * percentage;
-      setProfit(totalProfit)
-      profitRef.current.value = ''
+      setProfit(totalProfit);
+      profitRef.current.value = "";
     } else if (baseAmount >= 10) {
       const percentage = 0.035;
       const totalProfit = baseAmount * percentage;
-      setProfit(totalProfit)
-      profitRef.current.value = ''
+      setProfit(totalProfit);
+      profitRef.current.value = "";
     } else {
       const percentage = 0.03;
       const totalProfit = baseAmount * percentage;
-      setProfit(totalProfit)
-      profitRef.current.value = ''
+      setProfit(totalProfit);
+      profitRef.current.value = "";
     }
   };
 
@@ -114,21 +114,24 @@ const DepositReq = () => {
           placeholder="TransectionId"
           className="border-stroke  text-black text-body-color focus:border-mainColor w-full rounded border py-2 px-[14px] text-xs outline-none "
         />
-        <button  className="btn btn-sm normal-case btn-info">
-          Cheak
-        </button>
+        <button className="btn btn-sm normal-case btn-info">Cheak</button>
       </form>
-      <div className="flex flex-row items-center gap-3 mx-4 pb-2" >
-      <input
+      <div className="flex flex-row items-center gap-3 mx-4 pb-2">
+        <input
           type={"text"}
           ref={profitRef}
           name="textInput2"
           placeholder="Current Balance"
           className="border-stroke  text-black text-body-color focus:border-mainColor w-full rounded border py-2 px-[14px] text-xs outline-none "
-        /> <button onClick={cheakprofit} type="submit" className="btn btn-sm normal-case btn-info">
-        Cheak
-      </button>
-      <h1 className="text-base font-bold text-black">{profit.toFixed(2)}</h1>
+        />{" "}
+        <button
+          onClick={cheakprofit}
+          type="submit"
+          className="btn btn-sm normal-case btn-info"
+        >
+          Cheak
+        </button>
+        <h1 className="text-base font-bold text-black">{profit.toFixed(2)}</h1>
       </div>
 
       <div className="overflow-x-auto">
@@ -143,8 +146,8 @@ const DepositReq = () => {
               <th className="whitespace-nowrap p-4 font-medium ">
                 Transection Id
               </th>
-              <th className="whitespace-nowrap p-4 font-medium ">Method</th>
-              <th className="whitespace-nowrap p-4 font-medium ">DateTime</th>
+
+              <th className="whitespace-nowrap p-4 font-medium ">Proof</th>
               <th className="whitespace-nowrap p-4 font-medium ">Method</th>
               <th className="whitespace-nowrap text-center p-4 font-medium ">
                 Status
@@ -173,11 +176,18 @@ const DepositReq = () => {
                 <td className="whitespace-nowrap p-4 text-gray-700">
                   {depoRequest?.transectionId}
                 </td>
+
                 <td className="whitespace-nowrap p-4 text-gray-700">
-                  {depoRequest?.depositMethod}
-                </td>
-                <td className="whitespace-nowrap p-4 text-gray-700">
-                  {depoRequest?.DateTime}
+                {depoRequest?.proofImg === ""
+                      ? "Crypto"
+                      : <a
+                      href={depoRequest?.proofImg}
+                      className="underline text-blue-500"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                     Proof
+                    </a>}                  
                 </td>
                 <td className="whitespace-nowrap p-4 text-gray-700">
                   {depoRequest?.depositMethod}
