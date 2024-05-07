@@ -5,6 +5,8 @@ import useAxios from "./useAxios";
 const useRecentReq = () => {
   const axios = useAxios();
   const { user } = useAuth();
+  
+   // get recent withdraw request
   const { data: withdrawreq } = useQuery({
     queryKey: ["getWithdrawReq"],
     queryFn: async () => {
@@ -13,6 +15,8 @@ const useRecentReq = () => {
     },
   });
 
+
+  // get recent deposit request
   const { data: deporeq } = useQuery({
     queryKey: ["getdeporeq"],
     queryFn: async () => {
