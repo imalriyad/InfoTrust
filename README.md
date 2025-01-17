@@ -65,4 +65,4 @@ npm run dev
 
 - Server side Repository : https://github.com/imalriyad/invotrust-server
 
-- Live Link : https://invotrusts.com/
+- Live Link : https://invo-trust.vercel.app/
